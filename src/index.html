@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TailwindFlow | HTML + Tailwindcss Template</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <header x-data="header" class="header transition duration-500 ease-ease bg-header">
+    <div class="nav transition-all duration-500 ease-ease delay-300 animate-fadeInDown z-50"
+      :class="{ 'absolute w-full left-0 top-0 z-40 lg:py-4': atTop, 'fixed w-full left-0 top-0 backdrop-blur-md bg-white/70 dark:bg-slate-900/30 delay-300 animate-fadeInDown shadow-lg z-50 py-1': !atTop }"
+      x-on:scroll.window="atTop = (window.pageYOffset > 200) ? false : true;">
+      <div class="nav__container container w-full max-w-screen-xl relative mx-auto px-3"
+        :class="{ 'py-4 lg:py-0': atTop, 'py-2': !atTop }">
+        <div class="nav__wrapper grid grid-cols-12 items-center">
+          <div class="nav__toggle col-span-1 h-8 flex items-center lg:hidden">
+            <button @click="sideNav = !sideNav"
+              class="text-gray-700 dark:text-gray-300 cursor-pointer border-none outline-none focus:outline-none focus:bg-transparent transition-all duration-300 ease-ease z-30"
+              :class="{ 'ml-80': sideNav === true }">
+              <svg class="fill-current transition duration-300 ease-in-out transform" width="22" height="24">
+                <line class="stroke-current stroke-2 transition duration-500 ease-in-out transform"
+                  :class="{ 'translate-x-1.5 translate-y-0 rotate-45': sideNav === true }" id="top" x1="0" x2="22"
+                  y1="6" y2="6"></line>
+                <line class="stroke-current stroke-2 transition duration-500 ease-in-out transform"
+                  :class="{ 'opacity-0': sideNav === true }" id="middle" x1="0" x2="18" y1="12" y2="12"></line>
+                <line class="stroke-current stroke-2 transition duration-500 ease-in-out transform"
+                  :class="{ '-translate-x-[11px] translate-y-[7px] -rotate-45': sideNav === true }" id="bottom" x1="0"
+                  x2="22" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <div class="nav__brand logo col-span-9 lg:col-span-2 pl-8 lg:pl-0 lg:pr-8">
+            <a class="navbar__logo flex items-center" href="/" title="Back to home">
+              <span class="w-10 mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns:serif="http://www.serif.com/" width="100%" height="100%" viewBox="0 0 520 400" version="1.1"
+                  xml:space="preserve"
+                  style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                  <g transform="matrix(1.09937,0,0,1.09822,-25.7956,-34.8657)">
+                    <g id="top" transform="matrix(1.29641,0,0,1.63704,-32.198,-253.2)">
+                      <path
+                        d="M42.991,396.553C42.991,396.553 37.461,278.03 138.267,237.677C201.106,212.522 274.998,217.771 311.163,214.243C341.795,211.254 375.932,205.325 407.789,174.063C407.789,174.063 402.924,238.701 335.936,260.176C267.07,282.252 181.459,264.042 121.392,292.765C79.112,312.982 66.991,342.108 55.148,366.845C47.09,383.68 42.991,396.553 42.991,396.553Z"
+                        style="fill:url(#_Linear1);" />
+                    </g>
+                    <g id="bottom" transform="matrix(1.17909,0,0,1.4889,-27.161,-78.4566)">
+                      <path
+                        d="M42.937,318.643C42.937,318.643 41.76,272.454 116.781,239.02C172.998,213.967 249.875,219.309 311.163,214.243C340.888,211.786 375.932,205.325 407.789,174.063C407.789,174.063 389.771,248.077 325.759,260.624C227.557,279.871 150.655,250.794 87.185,280.675C54.275,296.169 42.937,318.643 42.937,318.643Z"
+                        style="fill:url(#_Linear2);" />
+                    </g>
+                  </g>
+                  <defs>
+                    <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse"
+                      gradientTransform="matrix(364.84,0,0,222.49,42.9496,285.308)">
+                      <stop offset="0" style="stop-color:rgb(74,108,247);stop-opacity:1" />
+                      <stop offset="1" style="stop-color:rgb(165,182,251);stop-opacity:1" />
+                      <stop offset="1" style="stop-color:white;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse"
+                      gradientTransform="matrix(364.84,0,0,222.49,42.9496,285.308)">
+                      <stop offset="0" style="stop-color:rgb(74,108,247);stop-opacity:1" />
+                      <stop offset="1" style="stop-color:rgb(165,182,251);stop-opacity:1" />
+                      <stop offset="1" style="stop-color:white;stop-opacity:1" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>
+              <span class="text-xl font-heading font-bold">Tailwind</span>
+              <span class="text-xl text-primary font-heading font-bold">Flow</span>
+            </a>
+          </div>
+          <div
+            class="nav__menu col-span-7 fixed lg:static w-full lg:w-full h-screen lg:h-auto left-0 top-0 bg-gray-900 lg:bg-transparent bg-opacity-40 transition-all duration-300 ease-ease z-20"
+            :class="sideNav ? 'visible' : 'invisible lg:visible'">
+            <nav x-data="{ selectedMenu: null }"
+              class="navbar w-80 lg:w-full h-full lg:h-auto bg-white dark:bg-slate-900 lg:bg-transparent dark:lg:bg-transparent transition-all duration-300 ease-ease shadow-md lg:shadow-none"
+              :class="sideNav ? 'ml-0' : '-ml-80 lg:ml-0'">
+              <ul class="navbar__menu menu lg:flex list-none pt-6 lg:pt-0 mb-0">
+                <!-- change menu lists data in src>data>menus.json -->
+                <template x-for="(menu, index) in menus" :key="menu.id">
+                  <li @click="selectedMenu !== index ? selectedMenu = index : selectedMenu = null"
+                    class="menu__item relative group font-heading text-gray-700 dark:text-gray-100 font-medium transition duration-300 ease-ease py-1 px-4 lg:px-3 mb-0">
+
+                    <template x-if="!menu.submenu">
+                      <a class="menu__item-link text-current" :href="menu.url" x-text="menu.label"></a>
+                    </template>
+
+                    <template x-if="menu.submenu">
+                      <div>
+                        <button
+                          class="w-full flex items-center justify-between lg:justify-start text-current cursor-pointer focus:outline-none">
+                          <span class="menu__link text-current" x-text="menu.label"></span>
+                          <svg
+                            class="svg-inline--fa fa-angle-down fa-w-10 fa-2x w-3 h-3 transition duration-300 ease-in-out transform lg:group-hover:-rotate-180 ml-2 mb-1 lg:mb-0"
+                            :class="{'-rotate-90': selectedMenu === index }" aria-hidden="true" focusable="false"
+                            data-prefix="far" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                              d="M151.5 347.8L3.5 201c-4.7-4.7-4.7-12.3 0-17l19.8-19.8c4.7-4.7 12.3-4.7 17 0L160 282.7l119.7-118.5c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17l-148 146.8c-4.7 4.7-12.3 4.7-17 0z"
+                              class=""></path>
+                          </svg>
+                        </button>
+                        <ul
+                          class="submenu whitespace-nowrap list-none bg-white dark:bg-slate-800 lg:w-52 top-full transition-all duration-200 ease-ease transform origin-top z-10 lg:shadow-md lg:rounded-lg py-3 pl-0 mt-1 mb-0"
+                          :class="{'static visible scale-y-100 opacity-100': selectedMenu === index, 'absolute invisible lg:group-hover:visible scale-y-0 lg:group-hover:scale-y-100 opacity-0 lg:group-hover:opacity-100': selectedMenu !== index }"
+                          aria-hidden="true">
+
+                          <template x-for="item in menu.submenu" :key="item.id">
+                            <li
+                              class="submenu__item text-sm text-gray-700 dark:text-gray-100 hover:text-submenu-text-hover transition hover:transform hover:translate-x-2 duration-300 ease-ease py-1 px-4 mb-0">
+                              <a class="submenu__item-link text-current" :href="item.url">
+                                <span x-text="item.label"></span>
+                              </a>
+                            </li>
+                          </template>
+
+                        </ul>
+                      </div>
+                    </template>
+
+                  </li>
+                </template>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-span-2 lg:col-span-3 flex justify-end items-center space-x-3">
+            <div class="nav__dark-light flex-none w-8 h-8">
+              <button class="outline-none cursor-pointer" @click="darkMode = !darkMode">
+                <template x-if="!darkMode">
+                  <span
+                    class="nav__cart-info w-8 h-8 flex items-center justify-center text-gray-700 hover:text-gray-500 dark:text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-moon w-6 h-6 inline-block fill-current">
+                      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                  </span>
+                </template>
+                <template x-if="darkMode">
+                  <span
+                    class="nav__cart-info w-8 h-8 flex items-center justify-center text-gray-700 hover:text-gray-500 dark:text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-sun w-6 h-6 inline-block fill-current">
+                      <circle cx="12" cy="12" r="5"></circle>
+                      <line x1="12" y1="1" x2="12" y2="3"></line>
+                      <line x1="12" y1="21" x2="12" y2="23"></line>
+                      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                      <line x1="1" y1="12" x2="3" y2="12"></line>
+                      <line x1="21" y1="12" x2="23" y2="12"></line>
+                      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                  </span>
+                </template>
+              </button>
+            </div>
+            <a class="hidden lg:flex items-center space-x-2 text-white bg-primary rounded-md py-1 px-3" href="">
+              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M13.6006 1.81055C13.6006 2.81048 12.79 3.62109 11.7901 3.62109C10.7902 3.62109 9.97955 2.81048 9.97955 1.81055C9.97955 0.810611 10.7902 0 11.7901 0C12.79 0 13.6006 0.810611 13.6006 1.81055Z"
+                  fill="currentColor" />
+                <path
+                  d="M0.196995 15.9875C0.187272 15.9619 0.18081 15.3345 0.182632 14.6186L0.18594 13.2898H0.9031H1.61462C1.6014 11.3863 1.62784 9.45578 1.61462 7.55232L0.836778 7.54711L0.0929635 7.54191L0.0672337 6.17572L0.0415039 4.80954H0.82292H1.61462V3.99599C1.61462 2.09061 2.75156 0.93823 4.72037 0.444997C5.92686 0.198748 6.5809 0.272182 7.81004 0.300158L7.83565 1.76454L7.86125 3.22893H7.04534C5.78658 3.22893 5.41864 3.53354 5.41558 4.41424V4.80939C8.1739 4.80939 10.8628 4.80939 13.6211 4.80939C13.6211 7.62969 13.6211 10.4695 13.6211 13.2898H14.9924C14.9924 13.2898 14.9883 13.2815 14.9924 13.4795C15.0139 14.5336 14.9822 14.7264 14.9924 15.9875C14.9621 16.0178 13.4723 15.9829 11.7105 15.9875H8.50737V14.6468V13.2898C8.97226 13.2898 9.43714 13.2898 9.90203 13.2898C9.90203 11.3734 9.90203 9.45966 9.90203 7.54329C8.60592 7.55837 6.57206 7.55082 5.41558 7.54329C5.32721 9.71586 5.36422 10.6952 5.41558 13.2898C5.93474 13.3095 6.45401 13.2726 6.97326 13.2898L6.99885 14.665L7.02444 15.9875H3.61956C1.74687 15.9875 0.206719 16.0131 0.196995 15.9875Z"
+                  fill="currentColor" />
+              </svg>
+              <span class="font-medium">Hire Us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+      <div class="md:flex items-center">
+        <div class="md:flex-none md:w-1/2 pr-16">
+          <h1 class="text-6xl text-gray-900 font-semibold leading-tight">Turn to-do into done with Tasks</h1>
+          <div class="text-2xl text-gray-900 pt-6">
+            <p>Stay on top of it all by creating to-dos in your notes and managing them your way.</p>
+          </div>
+          <div class="mt-12 mb-16">
+            <a class="text-white font-medium bg-green-600 hover:bg-green-500 rounded-md py-3 px-16" href="">Get
+              started</a>
+          </div>
+        </div>
+        <div class="md:flex-none md:w-1/2">
+          <img src="assets/images/task_video_thumbnail@2x.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+      <div class="md:flex items-center">
+        <div class="md:flex-none md:w-1/2 pl-16 pr-6">
+          <img src="assets/images/tasks_lp_screenshot@x2.png" alt="">
+        </div>
+        <div class="md:flex-none md:w-1/2 pl-12">
+          <h2 class="text-4xl text-gray-900 font-semibold leading-tight">See the big picture, or every little detail
+          </h2>
+          <div class="text-2xl text-gray-900 pt-4">
+            <p>Get an overview of everything on your plate, or focus on the information you need to tackle the task at
+              hand.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+      <div class="md:flex items-center">
+        <div class="md:flex-none md:w-1/2 pr-10">
+          <h2 class="text-4xl text-gray-900 font-semibold leading-tight">Put your to-dos in context</h2>
+          <div class="text-2xl text-gray-900 pt-4">
+            <p>Tasks live inside your notes, so there’s no need to interrupt your flow by switching between your notes
+              and a dedicated task manager.</p>
+          </div>
+        </div>
+        <div class="md:flex-none md:w-1/2 pl-16 pr-6">
+          <img src="assets/images/put_your_to-dos_in_context@2x.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+      <div class="md:flex items-center">
+        <div class="md:flex-none md:w-1/2 pl-16 pr-6">
+          <img src="assets/images/recurring-tasks-screenshot@2x.png" alt="">
+        </div>
+        <div class="md:flex-none md:w-1/2 pl-12">
+          <h2 class="text-4xl text-gray-900 font-semibold leading-tight">Keep your life on track</h2>
+          <div class="text-2xl text-gray-900 pt-4">
+            <p>Get the right thing done at the right time by setting due dates, recurrences, and reminders.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+      <div class="md:flex items-center">
+        <div class="md:flex-none md:w-1/2 pr-10">
+          <h2 class="text-4xl text-gray-900 font-semibold leading-tight">Delegate tasks to others</h2>
+          <div class="text-2xl text-gray-900 pt-4">
+            <p>Assign tasks to other people and track their progress to keep every project moving smoothly.</p>
+          </div>
+        </div>
+        <div class="md:flex-none md:w-1/2 pl-16 pr-6">
+          <img src="assets/images/delegate_tasks_to_others.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container max-w-screen-xl mx-auto py-10 px-20">
+      <div class="flex items-center justify-between bg-blue-50 py-12 px-16">
+        <div class="text-2xl text-gray-900">
+          <p>See which Evernote plan is right for you.</p>
+        </div>
+        <div>
+          <a class="text-white font-medium bg-green-600 hover:bg-green-500 rounded-md py-3 px-24" href="">Compare
+            plans</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+      <div class="text-center max-w-5xl mx-auto mb-10">
+        <h2 class="text-5xl text-gray-900 font-semibold leading-tight">Regain clarity and take control of your day</h2>
+        <div class="px-12">
+          <p class="text-2xl text-gray-900 pt-6">Start each day confident that you have a clear plan of action, and that
+            nothing important will get lost in the shuffle.</p>
+        </div>
+      </div>
+      <div x-data="{selectedImage: 1, selected: null}" class="md:flex">
+        <div class="md:flex-none md:w-2/3">
+          <ul class="md:pr-24">
+            <li x-show="selectedImage == 1"><img src="assets/images/feature_detail_module1@x2.png" alt=""></li>
+            <li x-show="selectedImage == 2"><img src="assets/images/feature_detail_module2@x2.png" alt=""></li>
+            <li x-show="selectedImage == 3"><img src="assets/images/feature_detail_module3@x2.png" alt=""></li>
+            <li x-show="selectedImage == 4"><img src="assets/images/feature_detail_module4@x2.png" alt=""></li>
+          </ul>
+        </div>
+
+        <div class="md:flex-none md:w-1/3">
+          <ul class="accordion pt-8">
+            <li class="relative border-b border-gray-200 transition-all duration-300"
+              :class="{ 'bg-gray-100 rounded-lg': selected == 1 }">
+              <button type="button" class="w-full px-6 py-6"
+                @click="selectedImage = 1; selected !== 1 ? selected = 1 : selected = null">
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-700 font-medium">ORGANIZE YOUR WAY</span>
+                  <span class="text-green-600">
+                    <svg class="svg-icon active" width="31" height="31" viewBox="0 0 30.33 30.27" fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <title>ORGANIZE YOUR WAY</title>
+                      <path class="st0" d="M15,0C6.7,0,0,6.7,0,15c0,8.3,6.7,15,15,15c8.3,0,15-6.7,15-15C30,6.7,23.3,0,15,0z M15,18.7l-6-6l1.4-1.4
+                    l4.6,4.6l4.6-4.6l1.4,1.4L15,18.7z"></path>
+                    </svg>
+                  </span>
+                </div>
+              </button>
+              <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container1"
+                x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                <div class="px-6 pb-8">
+                  <p>View your tasks by assignment, note, or due date, and use filters to see only what you need.</p>
+                </div>
+              </div>
+            </li>
+            <li class="relative border-b border-gray-200 transition-all duration-300"
+              :class="{ 'bg-gray-100 rounded-lg': selected == 2 }">
+              <button type="button" class="w-full px-6 py-6"
+                @click="selectedImage = 2; selected !== 2 ? selected = 2 : selected = null">
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-700 font-medium">SEE YOUR PRIORITIES</span>
+                  <span class="text-green-600">
+                    <svg class="svg-icon active" width="31" height="31" viewBox="0 0 30.33 30.27" fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <title>SEE YOUR PRIORITIES</title>
+                      <path class="st0" d="M15,0C6.7,0,0,6.7,0,15c0,8.3,6.7,15,15,15c8.3,0,15-6.7,15-15C30,6.7,23.3,0,15,0z M15,18.7l-6-6l1.4-1.4
+                    l4.6,4.6l4.6-4.6l1.4,1.4L15,18.7z"></path>
+                    </svg>
+                  </span>
+                </div>
+              </button>
+              <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container2"
+                x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''">
+                <div class="px-6 pb-8">
+                  <p>Get a one-stop view of everything you have to get done, so you can stay focused on what matters.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="relative border-b border-gray-200 transition-all duration-300"
+              :class="{ 'bg-gray-100 rounded-lg': selected == 3 }">
+              <button type="button" class="w-full px-6 py-6"
+                @click="selectedImage = 3; selected !== 3 ? selected = 3 : selected = null">
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-700 font-medium">STAY IN SYNC</span>
+                  <span class="text-green-600">
+                    <svg class="svg-icon active" width="31" height="31" viewBox="0 0 30.33 30.27" fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <title>STAY IN SYNC</title>
+                      <path class="st0" d="M15,0C6.7,0,0,6.7,0,15c0,8.3,6.7,15,15,15c8.3,0,15-6.7,15-15C30,6.7,23.3,0,15,0z M15,18.7l-6-6l1.4-1.4
+                    l4.6,4.6l4.6-4.6l1.4,1.4L15,18.7z"></path>
+                    </svg>
+                  </span>
+                </div>
+              </button>
+              <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container3"
+                x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''">
+                <div class="px-6 pb-8">
+                  <p>Changes you make to your tasks update instantly across every view, on all your devices.</p>
+                </div>
+              </div>
+            </li>
+            <li class="relative border-b border-gray-200 transition-all duration-300"
+              :class="{ 'bg-gray-100 rounded-lg': selected == 4 }">
+              <button type="button" class="w-full px-6 py-6"
+                @click="selectedImage = 4; selected !== 4 ? selected = 4 : selected = null">
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-700 font-medium">GET ALERTS</span>
+                  <span class="text-green-600">
+                    <svg class="svg-icon active" width="31" height="31" viewBox="0 0 30.33 30.27" fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <title>GET ALERTS</title>
+                      <path class="st0" d="M15,0C6.7,0,0,6.7,0,15c0,8.3,6.7,15,15,15c8.3,0,15-6.7,15-15C30,6.7,23.3,0,15,0z M15,18.7l-6-6l1.4-1.4
+                    l4.6,4.6l4.6-4.6l1.4,1.4L15,18.7z"></path>
+                    </svg>
+                  </span>
+                </div>
+              </button>
+              <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container4"
+                x-bind:style="selected == 4 ? 'max-height: ' + $refs.container4.scrollHeight + 'px' : ''">
+                <div class="px-6 pb-8">
+                  <p>Evernote can remind you when a task needs your attention, even when you’re not in the app.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+      <div class="text-center max-w-5xl mx-auto mb-10">
+        <h2 class="text-4xl text-gray-900 font-semibold leading-tight">Discover more on the Evernote Blog</h2>
+        <div class="px-12">
+          <p class="text-2xl text-gray-900 pt-4">See how Evernote can help organize your life.</p>
+        </div>
+      </div>
+      <div class="md:flex md:justify-center md:space-x-8">
+        <div class="md:flex-none md:w-1/2 lg:w-1/3 shadow hover:shadow-xl rounded-md overflow-hidden">
+          <div class="relative aspect-[3/2]">
+            <img class="absolute top-0 left-0 w-full h-full object-cover"
+              src="assets/images/task-feature-blog-card@2x.png" alt="">
+          </div>
+          <div class="py-6 px-6">
+            <h3 class="text-2xl font-medium">Turn To-Do Into Done With Tasks</h3>
+            <div class="pt-6">
+              <a class="text-xs text-green-600 font-bold" href="">READ BLOG →</a>
+            </div>
+          </div>
+        </div>
+        <div class="md:flex-none md:w-1/2 lg:w-1/3 shadow hover:shadow-xl rounded-md overflow-hidden">
+          <div class="relative aspect-[3/2]">
+            <img class="absolute top-0 left-0 w-full h-full object-cover"
+              src="assets/images/blog_ian-photo_blog-card.jpg" alt="">
+          </div>
+          <div class="py-6 px-6">
+            <h3 class="text-2xl font-medium">Tasks: Checking Off Another Step in Evernote's Evolution</h3>
+            <div class="pt-6">
+              <a class="text-xs text-green-600 font-bold" href="">READ BLOG →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+      <div class="pb-12 border-b-4 border-solid border-gray-900 mb-10">
+        <svg xmlns="http://www.w3.org/2000/svg" width="178" height="40" viewBox="0 0 178 40">
+          <g fill="none" transform="translate(.078)">
+            <g fill="#000000" transform="translate(42.788 6.452)">
+              <path
+                d="M.259323367 21.1935484L1.36144768 20.9677419C2.33391031 20.7096774 2.59323367 20.5806452 2.59323367 18.6451613L2.59323367 3.4516129C2.59323367 1.51612903 2.30149489 1.35483871 1.36144768 1.12903226L.259323367.903225806.259323367 0 17.8284815 0 18.1526357 6.41935484 17.1477577 6.41935484C16.3373721 4.64516129 15.8187254 3.70967742 15.3324941 3 14.2952006 1.51612903 13.6144768 1.38709677 11.3778127 1.38709677 9.72462628 1.38709677 8.91424076 1.58064516 8.42800944 1.70967742L8.42800944 9.93548387 9.30322581 9.93548387C11.5723053 9.93548387 12.090952 9.67741935 12.4799371 8.96774194 12.933753 8.16129032 13.1930763 7.5483871 13.4848151 6.51612903L14.4572777 6.51612903 14.4572777 14.8387097 13.4848151 14.8387097C13.1930763 13.8387097 12.933753 13.1935484 12.4799371 12.2580645 12.090952 11.4516129 11.6695515 11.2903226 9.30322581 11.2903226L8.42800944 11.2903226 8.42800944 17.483871C8.42800944 20.3548387 8.5252557 20.6774194 11.6695515 20.6774194 14.2627852 20.6774194 14.7814319 20.3548387 15.8511408 18.7741935 16.4346184 17.9032258 17.0505114 16.5483871 17.8933124 14.516129L18.9306058 14.516129 18.4767899 22.0967742.291738788 22.0967742.259323367 21.1935484zM21.6535012 9.09677419C20.9079465 7.29032258 20.5513769 6.83870968 19.7409913 6.58064516L19.1250983 6.38709677 19.1250983 5.5483871 28.7524784 5.5483871 28.7524784 6.38709677 27.877262 6.61290323C27.1965382 6.80645161 26.8723839 7.12903226 26.8723839 7.90322581 26.8723839 8.35483871 27.0344611 8.90322581 27.2937844 9.61290323L29.9842644 16.9677419 30.1463415 16.9677419 32.7395751 9.61290323C33.0313139 8.83870968 33.1609756 8.29032258 33.1609756 7.83870968 33.1609756 7.12903226 32.8368214 6.77419355 32.1560976 6.61290323L31.2808812 6.38709677 31.2808812 5.5483871 37.2129032 5.5483871 37.2129032 6.38709677 36.5970102 6.58064516C35.7542093 6.87096774 35.3976397 7.35483871 34.6196696 9.4516129L29.6601101 22.0967742 26.9372148 22.0967742 21.6535012 9.09677419zM36.4673485 13.7419355C36.4673485 8.19354839 40.584107 5.12903226 44.8305271 5.12903226 49.2390244 5.12903226 51.9943352 7.32258065 52.0915814 13.0967742L41.4917388 13.0967742C41.5889851 18.3225806 43.5663257 19.7419355 46.8726987 19.7419355 48.8500393 19.7419355 50.3735641 19.1612903 51.5729347 18.5483871L51.5729347 19.6129032C50.438395 20.8387097 48.0072384 22.516129 44.7981117 22.516129 39.2226593 22.4516129 36.4673485 19.1612903 36.4673485 13.7419355zM41.4917388 11.8709677L46.9699449 11.5806452C46.9699449 7.74193548 46.4512982 6.32258065 44.5387884 6.32258065 42.9180173 6.32258065 41.6214005 7.87096774 41.4917388 11.8709677zM60.5195909 7.58064516C61.4272227 6.61290323 63.2749017 5.03225806 65.4143194 5.03225806 66.7757671 5.03225806 67.9103068 6.12903226 67.9103068 7.51612903 67.9103068 8.90322581 66.8081825 10 65.4143194 10 64.4094414 10 63.5018096 9.38709677 63.14524 8.51612903 62.9507474 8.16129032 62.529347 8.06451613 62.2376082 8.06451613 61.6541306 8.06451613 60.9734068 8.48387097 60.5520063 8.87096774L60.5520063 19.1935484C60.5520063 20.6774194 60.681668 20.8387097 61.6541306 21L62.7238395 21.2258065 62.7238395 22.0967742 53.4854445 22.0967742 53.4854445 21.2258065 54.3282455 21C55.3979544 20.7096774 55.5276161 20.5483871 55.5276161 19.1935484L55.5276161 9.29032258C55.5276161 7.93548387 55.3655389 7.83870968 54.4579072 7.22580645L53.3881983 6.51612903 53.3881983 5.87096774 60.1306058 5.09677419 60.4871755 5.35483871 60.4223446 7.5483871 60.5195909 7.58064516M68.8827695 21.2258065L69.7255704 21C70.7952793 20.7096774 70.924941 20.5483871 70.924941 19.1935484L70.924941 9.29032258C70.924941 7.93548387 70.7628639 7.83870968 69.8552321 7.22580645L68.7855232 6.51612903 68.7855232 5.87096774 75.5279308 5.09677419 75.8845004 5.32258065 75.8196696 7.35483871 75.9493312 7.35483871C77.6349331 6.16129032 79.7419355 5.09677419 82.0758458 5.09677419 84.7987411 5.09677419 86.2574351 6.48387097 86.2574351 9.35483871L86.2574351 19.1612903C86.2574351 20.5483871 86.3870968 20.7096774 87.4243902 20.9677419L88.2671912 21.1935484 88.2671912 22.0645161 79.3529504 22.0645161 79.3529504 21.1935484 80.1309205 21C81.1033832 20.7419355 81.2006294 20.6451613 81.2006294 19.1612903L81.2006294 10.6129032C81.2006294 8.67741935 80.4874902 8.06451613 78.9963808 8.06451613 77.8618411 8.06451613 76.7273013 8.32258065 76.0141621 8.48387097L76.0141621 19.1935484C76.0141621 20.7096774 76.1114083 20.7741935 77.083871 21.0322581L77.8618411 21.2258065 77.8618411 22.0967742 68.9476003 22.0967742 68.9476003 21.2258065 68.8827695 21.2258065zM88.8830842 13.8387097C88.8830842 7.74193548 93.2267506 5.12903226 97.5380016 5.12903226 102.173407 5.12903226 106.225334 7.90322581 106.225334 13.6774194 106.225334 19.7741935 101.946499 22.4516129 97.5380016 22.4516129 92.9025964 22.4516129 88.8830842 19.6774194 88.8830842 13.8387097zM100.844375 14C100.844375 7.58064516 99.6125885 6.35483871 97.4083399 6.35483871 95.3985838 6.35483871 94.1992132 7.80645161 94.1992132 13.2903226 94.1992132 19.8064516 95.2689221 21.2258065 97.6028324 21.2258065 99.5153423 21.2258065 100.844375 20.0967742 100.844375 14zM108.980645 18.0645161L108.980645 7.41935484 106.970889 7.41935484 106.970889 6.64516129C109.466876 5.67741935 111.379386 3.83870968 112.287018 1.29032258L114.102282 1.29032258 114.102282 5.5483871 118.348702 5.5483871 117.927301 7.41935484 114.102282 7.41935484 114.102282 17.7419355C114.102282 19.3225806 114.588513 19.9677419 116.176869 19.9677419 116.954839 19.9677419 117.894886 19.8064516 118.478363 19.6774194L118.478363 20.5806452C117.700393 21.2903226 116.112038 22.4516129 113.421558 22.4516129 110.536585 22.4516129 108.980645 21.1935484 108.980645 18.0645161zM119.126672 13.7419355C119.126672 8.19354839 123.24343 5.12903226 127.489851 5.12903226 131.898348 5.12903226 134.653659 7.32258065 134.750905 13.0967742L124.183478 13.0967742C124.280724 18.3225806 126.258065 19.7419355 129.564437 19.7419355 131.541778 19.7419355 133.065303 19.1612903 134.264673 18.5483871L134.264673 19.6129032C133.130134 20.8387097 130.698977 22.516129 127.489851 22.516129 121.881983 22.4516129 119.126672 19.1612903 119.126672 13.7419355zM124.151062 11.8709677L129.629268 11.5806452C129.629268 7.74193548 129.110622 6.32258065 127.198112 6.32258065 125.577341 6.32258065 124.280724 7.87096774 124.151062 11.8709677z" />
+            </g>
+            <path fill="#00A82D"
+              d="M10.5674272,8.93548387 C10.5674272,9.32258065 10.5350118,9.96774194 10.1460268,10.3870968 C9.72462628,10.7741935 9.07631786,10.8064516 8.68733281,10.8064516 L4.53815893,10.8064516 C3.33878836,10.8064516 2.6256491,10.8064516 2.13941778,10.8709677 C1.88009441,10.9032258 1.5559402,11.0322581 1.3938631,11.0967742 C1.32903226,11.1290323 1.32903226,11.0967742 1.36144768,11.0645161 L10.8267506,1.48387097 C10.859166,1.4516129 10.8915814,1.4516129 10.859166,1.51612903 C10.7943352,1.67741935 10.6646735,2 10.6322581,2.25806452 C10.5674272,2.74193548 10.5674272,3.4516129 10.5674272,4.64516129 L10.5674272,8.93548387 Z M19.3844217,37.9032258 C18.2822974,37.1935484 17.6988198,36.2580645 17.4719119,35.6774194 C17.2450039,35.1290323 17.1153423,34.516129 17.1153423,33.9032258 C17.1153423,31.2258065 19.3195909,29.0322581 22.0424862,29.0322581 C22.8528718,29.0322581 23.5011802,29.6774194 23.5011802,30.483871 C23.5011802,31.0322581 23.2094414,31.483871 22.7556255,31.7419355 C22.5935484,31.8387097 22.3666404,31.9032258 22.2045633,31.9354839 C22.0424862,31.9677419 21.4265932,32.0322581 21.1348544,32.2903226 C20.8107002,32.5483871 20.5513769,32.9677419 20.5513769,33.4193548 C20.5513769,33.9032258 20.7458694,34.3548387 21.0700236,34.6774194 C21.6535012,35.2580645 22.4314713,35.5806452 23.2742722,35.5806452 C25.4785208,35.5806452 27.261369,33.8064516 27.261369,31.6129032 C27.261369,29.6451613 25.9323367,27.9032258 24.181904,27.1290323 C23.9225806,27 23.5011802,26.9032258 23.1121951,26.8064516 C22.6259638,26.7096774 22.1721479,26.6451613 22.1397325,26.6451613 C20.7782848,26.483871 17.3746656,25.4193548 17.1477577,22.4193548 C17.1477577,22.4193548 16.1428796,26.9354839 14.1331235,28.1612903 C13.938631,28.2580645 13.6793076,28.3548387 13.3875688,28.4193548 C13.0958301,28.483871 12.7716758,28.516129 12.6744296,28.516129 C9.40047207,28.7096774 5.93202203,27.6774194 3.53328088,25.2258065 C3.53328088,25.2258065 1.91250983,23.9032258 1.06970889,20.1935484 C0.875216365,19.2903226 0.486231314,17.6774194 0.259323367,16.1612903 C0.162077105,15.6129032 0.129661684,15.1935484 0.0972462628,14.8064516 C0.0972462628,13.2258065 1.06970889,12.1612903 2.30149489,12 C2.33391031,12 2.43115657,12 2.49598741,12 C3.24154209,12 8.91424076,12 8.91424076,12 C10.0487805,12 10.6970889,11.7096774 11.1184894,11.3225806 C11.6695515,10.8064516 11.7992132,10.0645161 11.7992132,9.19354839 C11.7992132,9.19354839 11.7992132,3.32258065 11.7992132,2.58064516 C11.7992132,2.5483871 11.7992132,2.41935484 11.7992132,2.38709677 C11.9612903,1.19354839 13.0309992,0.193548387 14.6193548,0.193548387 C14.6193548,0.193548387 15.1055862,0.193548387 15.3973249,0.193548387 C15.7214792,0.193548387 16.1104642,0.225806452 16.4670338,0.258064516 C16.7263572,0.290322581 16.9532651,0.35483871 17.3422502,0.451612903 C19.3195909,0.935483871 19.7409913,2.93548387 19.7409913,2.93548387 C19.7409913,2.93548387 23.4687648,3.58064516 25.3488592,3.90322581 C27.1317073,4.22580645 31.5402046,4.51612903 32.3830055,8.93548387 C34.3603462,19.4516129 33.1609756,29.6451613 33.0637293,29.6451613 C31.6698662,39.5806452 23.3715185,39.0967742 23.3715185,39.0967742 C21.5886703,39.0967742 20.2596381,38.516129 19.3844217,37.9032258 Z M26.8399685,16.7741935 C25.7702596,16.6774194 24.8626279,17.0967742 24.5384736,17.9032258 C24.4736428,18.0645161 24.408812,18.2580645 24.4412274,18.3548387 C24.4736428,18.4516129 24.5384736,18.483871 24.6033045,18.516129 C24.9922895,18.7096774 25.640598,18.8064516 26.5806452,18.9032258 C27.5206924,19 28.1690008,19.0645161 28.5904013,19 C28.6552321,19 28.7200629,18.9677419 28.7848938,18.8709677 C28.8497246,18.7741935 28.8173092,18.5806452 28.8173092,18.4193548 C28.6876475,17.516129 27.9096774,16.9032258 26.8399685,16.7741935 Z" />
+          </g>
+        </svg>
+      </div>
+      <nav class="flex flex-wrap space-x-16 mb-16">
+        <div>
+          <p class="text-gray-900 font-bold mb-5">Product</p>
+          <ul>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Why Evernote</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Evernote
+                Free</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Evernote
+                Personal</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Evernote
+                Professional</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Evernote
+                Teams</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Compare
+                Plans</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Student
+                Discount</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Download App</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-gray-900 font-bold mb-5">Features</p>
+          <ul>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Web Clipper</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Templates</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Spaces</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Integrations</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Notes Sync</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">PDF &amp; Doc
+                Search</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Search
+                Handwriting</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Document
+                Scanning</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Notebooks &amp;
+                Tags</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Tasks</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Calendar</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Home</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Search</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-gray-900 font-bold mb-5">Resources</p>
+          <ul>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Resources</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Make
+                Connections</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Become an
+                Expert</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Find an
+                Expert</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Early Access</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Affiliates</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Developers</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-gray-900 font-bold mb-5">Support</p>
+          <ul>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Help &amp;
+                Learning</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current"
+                href="">Troubleshooting</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Forum</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-gray-900 font-bold mb-5">Company</p>
+          <ul>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">About Us</a>
+            </li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Careers</a></li>
+            <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <nav class="relative flex flex-wrap justify-between items-center space-x-16 border-b border-solid border-gray-300 pb-8 mb-8">
+        <div x-data="{optionsLang: false}">
+          <div class="text-sm">
+            <span class="font-bold">Choose a language:</span>
+            <button @click="optionsLang = !optionsLang" class="inline-flex space-x-3 py-2 px-4">
+              <span>English (US)</span>
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path
+                  d="M311.9 335.1l-132.4 136.8C174.1 477.3 167.1 480 160 480c-7.055 0-14.12-2.702-19.47-8.109l-132.4-136.8C-9.229 317.8 3.055 288 27.66 288h264.7C316.9 288 329.2 317.8 311.9 335.1z" />
+                </svg>
+              </button>
+          </div>
+          <div x-show="optionsLang" class="absolute bottom-16 left-8 flex flex-wrap text-sm bg-blue-100 py-4">
+            <ul>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Bahasa Indonesia</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Bahasa Melayu</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Dansk</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Deutsch</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">English (US)</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Espa&ntilde;ol</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Espa&ntilde;ol (Am&eacute;rica Latina)</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Fran&ccedil;ais</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Italiano</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Nederlands</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Polski</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Portugu&ecirc;s (Brasil)</a></li>
+            </ul>
+            <ul>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Portugu&ecirc;s (Portugal)</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Suomi</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Svenska</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Tiếng Việt</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">T&uuml;rk&ccedil;e</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Русский</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">العربية</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">ภาษาไทย</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">한국어</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">中文（简体）</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">中文（繁體）</a></li>
+              <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">日本語</a></li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <ul class="flex items-center space-x-8">
+            <li>
+              <a href="https://www.facebook.com/evernote/">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                  <path
+                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+                </svg>
+                <!-- Facebook -->
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/evernote">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path
+                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                </svg>
+                <!-- Twitter -->
+              </a>
+            </li>
+            <li>
+              <a href="https://medium.com/@evernote">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                  <path
+                    d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z" />
+                </svg>
+                <!-- Medium -->
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/evernote">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <path
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                </svg>
+                <!-- Instagram -->
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCr_JcNR6slxFcTtDZ8t6F0A">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                  <path
+                    d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+                </svg>
+                <!-- YouTube -->
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/company/evernote">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <path
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+                </svg>
+                <!-- Linkedin -->
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="flex items-center justify-between text-gray-500 text-sm">
+        <p>&copy; 2022 Evernote Corporation. All rights reserved.</p>
+        <ul class="flex space-x-6">
+          <li><a class="hover:text-gray-700" href="">Security</a></li>
+          <li><a class="hover:text-gray-700" href="">Legal</a></li>
+          <li><a class="hover:text-gray-700" href="">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+
+</html>

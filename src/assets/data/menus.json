@@ -1,0 +1,85 @@
+{
+    "menus": [
+        {
+            "id": 1,
+            "label": "home",
+            "url": "/"
+        },
+        {
+            "id": 2,
+            "label": "Features",
+            "url": "features",
+            "submenu": [
+                {
+                    "id": 1,
+                    "label": "Features",
+                    "url": "features"
+                },
+                {
+                    "id": 2,
+                    "label": "Single Features",
+                    "url": "single-features"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "label": "Services",
+            "url": "services",
+            "submenu": [
+                {
+                    "id": 1,
+                    "label": "Web Design",
+                    "url": "web-design"
+                },
+                {
+                    "id": 2,
+                    "label": "Web Development",
+                    "url": "web-development"
+                },
+                {
+                    "id": 3,
+                    "label": "Product Design",
+                    "url": "product-design"
+                },
+                {
+                    "id": 4,
+                    "label": "Marketing",
+                    "url": "marketing"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "label": "Blog",
+            "url": "blog",
+            "submenu": [
+                {
+                    "id": 1,
+                    "label": "Blog",
+                    "url": "blog"
+                },
+                {
+                    "id": 2,
+                    "label": "Blog Details",
+                    "url": "blog-details"
+                },
+                {
+                    "id": 3,
+                    "label": "Portfolio",
+                    "url": "portfolio"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "label": "About",
+            "url": "about/"
+        },
+        {
+            "id": 6,
+            "label": "Contact",
+            "url": "contact"
+        }
+    ]
+}

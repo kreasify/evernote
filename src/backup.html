@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TailwindFlow | HTML + Tailwindcss Template</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+  x-init="$watch('darkMode', val => localStorage.setItem('dark', val))" x-bind:class="{ 'dark': darkMode }"
+  :data-theme="darkMode ? 'dark' : 'light'">
+
+  <!-- Header Site -->
+  <header x-data="header" class="header transition duration-500 ease-ease bg-header">
+    <div class="nav transition-all duration-500 ease-ease delay-300 animate-fadeInDown z-50"
+      :class="{ 'absolute w-full left-0 top-0 z-40 lg:py-4': atTop, 'fixed w-full left-0 top-0 backdrop-blur-md bg-white/70 dark:bg-slate-900/30 delay-300 animate-fadeInDown shadow-lg z-50 py-1': !atTop }"
+      x-on:scroll.window="atTop = (window.pageYOffset > 200) ? false : true;">
+      <div class="nav__container container w-full max-w-screen-xl relative mx-auto px-3"
+        :class="{ 'py-4 lg:py-0': atTop, 'py-2': !atTop }">
+        <div class="nav__wrapper grid grid-cols-12 items-center">
+          <div class="nav__toggle col-span-1 h-8 flex items-center lg:hidden">
+            <button @click="sideNav = !sideNav"
+              class="text-gray-700 dark:text-gray-300 cursor-pointer border-none outline-none focus:outline-none focus:bg-transparent transition-all duration-300 ease-ease z-30"
+              :class="{ 'ml-80': sideNav === true }">
+              <svg class="fill-current transition duration-300 ease-in-out transform" width="22" height="24">
+                <line class="stroke-current stroke-2 transition duration-500 ease-in-out transform"
+                  :class="{ 'translate-x-1.5 translate-y-0 rotate-45': sideNav === true }" id="top" x1="0" x2="22"
+                  y1="6" y2="6"></line>
+                <line class="stroke-current stroke-2 transition duration-500 ease-in-out transform"
+                  :class="{ 'opacity-0': sideNav === true }" id="middle" x1="0" x2="18" y1="12" y2="12"></line>
+                <line class="stroke-current stroke-2 transition duration-500 ease-in-out transform"
+                  :class="{ '-translate-x-[11px] translate-y-[7px] -rotate-45': sideNav === true }" id="bottom" x1="0"
+                  x2="22" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <div class="nav__brand logo col-span-9 lg:col-span-2 pl-8 lg:pl-0 lg:pr-8">
+            <a class="navbar__logo flex items-center" href="/" title="Back to home">
+              <span class="w-10 mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns:serif="http://www.serif.com/" width="100%" height="100%" viewBox="0 0 520 400" version="1.1"
+                  xml:space="preserve"
+                  style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                  <g transform="matrix(1.09937,0,0,1.09822,-25.7956,-34.8657)">
+                    <g id="top" transform="matrix(1.29641,0,0,1.63704,-32.198,-253.2)">
+                      <path
+                        d="M42.991,396.553C42.991,396.553 37.461,278.03 138.267,237.677C201.106,212.522 274.998,217.771 311.163,214.243C341.795,211.254 375.932,205.325 407.789,174.063C407.789,174.063 402.924,238.701 335.936,260.176C267.07,282.252 181.459,264.042 121.392,292.765C79.112,312.982 66.991,342.108 55.148,366.845C47.09,383.68 42.991,396.553 42.991,396.553Z"
+                        style="fill:url(#_Linear1);" />
+                    </g>
+                    <g id="bottom" transform="matrix(1.17909,0,0,1.4889,-27.161,-78.4566)">
+                      <path
+                        d="M42.937,318.643C42.937,318.643 41.76,272.454 116.781,239.02C172.998,213.967 249.875,219.309 311.163,214.243C340.888,211.786 375.932,205.325 407.789,174.063C407.789,174.063 389.771,248.077 325.759,260.624C227.557,279.871 150.655,250.794 87.185,280.675C54.275,296.169 42.937,318.643 42.937,318.643Z"
+                        style="fill:url(#_Linear2);" />
+                    </g>
+                  </g>
+                  <defs>
+                    <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse"
+                      gradientTransform="matrix(364.84,0,0,222.49,42.9496,285.308)">
+                      <stop offset="0" style="stop-color:rgb(74,108,247);stop-opacity:1" />
+                      <stop offset="1" style="stop-color:rgb(165,182,251);stop-opacity:1" />
+                      <stop offset="1" style="stop-color:white;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse"
+                      gradientTransform="matrix(364.84,0,0,222.49,42.9496,285.308)">
+                      <stop offset="0" style="stop-color:rgb(74,108,247);stop-opacity:1" />
+                      <stop offset="1" style="stop-color:rgb(165,182,251);stop-opacity:1" />
+                      <stop offset="1" style="stop-color:white;stop-opacity:1" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>
+              <span class="text-xl font-heading font-bold">Tailwind</span>
+              <span class="text-xl text-primary font-heading font-bold">Flow</span>
+            </a>
+          </div>
+          <div
+            class="nav__menu col-span-7 fixed lg:static w-full lg:w-full h-screen lg:h-auto left-0 top-0 bg-gray-900 lg:bg-transparent bg-opacity-40 transition-all duration-300 ease-ease z-20"
+            :class="sideNav ? 'visible' : 'invisible lg:visible'">
+            <nav x-data="{ selectedMenu: null }"
+              class="navbar w-80 lg:w-full h-full lg:h-auto bg-white dark:bg-slate-900 lg:bg-transparent dark:lg:bg-transparent transition-all duration-300 ease-ease shadow-md lg:shadow-none"
+              :class="sideNav ? 'ml-0' : '-ml-80 lg:ml-0'">
+              <ul class="navbar__menu menu lg:flex list-none pt-6 lg:pt-0 mb-0">
+                <!-- change menu lists data in src>data>menus.json -->
+                <template x-for="(menu, index) in menus" :key="menu.id">
+                  <li @click="selectedMenu !== index ? selectedMenu = index : selectedMenu = null"
+                    class="menu__item relative group font-heading text-gray-700 dark:text-gray-100 font-medium transition duration-300 ease-ease py-1 px-4 lg:px-3 mb-0">
+
+                    <template x-if="!menu.submenu">
+                      <a class="menu__item-link text-current" :href="menu.url" x-text="menu.label"></a>
+                    </template>
+
+                    <template x-if="menu.submenu">
+                      <div>
+                        <button
+                          class="w-full flex items-center justify-between lg:justify-start text-current cursor-pointer focus:outline-none">
+                          <span class="menu__link text-current" x-text="menu.label"></span>
+                          <svg
+                            class="svg-inline--fa fa-angle-down fa-w-10 fa-2x w-3 h-3 transition duration-300 ease-in-out transform lg:group-hover:-rotate-180 ml-2 mb-1 lg:mb-0"
+                            :class="{'-rotate-90': selectedMenu === index }" aria-hidden="true" focusable="false"
+                            data-prefix="far" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                              d="M151.5 347.8L3.5 201c-4.7-4.7-4.7-12.3 0-17l19.8-19.8c4.7-4.7 12.3-4.7 17 0L160 282.7l119.7-118.5c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17l-148 146.8c-4.7 4.7-12.3 4.7-17 0z"
+                              class=""></path>
+                          </svg>
+                        </button>
+                        <ul
+                          class="submenu whitespace-nowrap list-none bg-white dark:bg-slate-800 lg:w-52 top-full transition-all duration-200 ease-ease transform origin-top z-10 lg:shadow-md lg:rounded-lg py-3 pl-0 mt-1 mb-0"
+                          :class="{'static visible scale-y-100 opacity-100': selectedMenu === index, 'absolute invisible lg:group-hover:visible scale-y-0 lg:group-hover:scale-y-100 opacity-0 lg:group-hover:opacity-100': selectedMenu !== index }"
+                          aria-hidden="true">
+
+                          <template x-for="item in menu.submenu" :key="item.id">
+                            <li
+                              class="submenu__item text-sm text-gray-700 dark:text-gray-100 hover:text-submenu-text-hover transition hover:transform hover:translate-x-2 duration-300 ease-ease py-1 px-4 mb-0">
+                              <a class="submenu__item-link text-current" :href="item.url">
+                                <span x-text="item.label"></span>
+                              </a>
+                            </li>
+                          </template>
+
+                        </ul>
+                      </div>
+                    </template>
+
+                  </li>
+                </template>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-span-2 lg:col-span-3 flex justify-end items-center space-x-3">
+            <div class="nav__dark-light flex-none w-8 h-8">
+              <button class="outline-none cursor-pointer" @click="darkMode = !darkMode">
+                <template x-if="!darkMode">
+                  <span
+                    class="nav__cart-info w-8 h-8 flex items-center justify-center text-gray-700 hover:text-gray-500 dark:text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-moon w-6 h-6 inline-block fill-current">
+                      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                  </span>
+                </template>
+                <template x-if="darkMode">
+                  <span
+                    class="nav__cart-info w-8 h-8 flex items-center justify-center text-gray-700 hover:text-gray-500 dark:text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-sun w-6 h-6 inline-block fill-current">
+                      <circle cx="12" cy="12" r="5"></circle>
+                      <line x1="12" y1="1" x2="12" y2="3"></line>
+                      <line x1="12" y1="21" x2="12" y2="23"></line>
+                      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                      <line x1="1" y1="12" x2="3" y2="12"></line>
+                      <line x1="21" y1="12" x2="23" y2="12"></line>
+                      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                  </span>
+                </template>
+              </button>
+            </div>
+            <a class="hidden lg:flex items-center space-x-2 text-white bg-primary rounded-md py-1 px-3" href="">
+              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M13.6006 1.81055C13.6006 2.81048 12.79 3.62109 11.7901 3.62109C10.7902 3.62109 9.97955 2.81048 9.97955 1.81055C9.97955 0.810611 10.7902 0 11.7901 0C12.79 0 13.6006 0.810611 13.6006 1.81055Z"
+                  fill="currentColor" />
+                <path
+                  d="M0.196995 15.9875C0.187272 15.9619 0.18081 15.3345 0.182632 14.6186L0.18594 13.2898H0.9031H1.61462C1.6014 11.3863 1.62784 9.45578 1.61462 7.55232L0.836778 7.54711L0.0929635 7.54191L0.0672337 6.17572L0.0415039 4.80954H0.82292H1.61462V3.99599C1.61462 2.09061 2.75156 0.93823 4.72037 0.444997C5.92686 0.198748 6.5809 0.272182 7.81004 0.300158L7.83565 1.76454L7.86125 3.22893H7.04534C5.78658 3.22893 5.41864 3.53354 5.41558 4.41424V4.80939C8.1739 4.80939 10.8628 4.80939 13.6211 4.80939C13.6211 7.62969 13.6211 10.4695 13.6211 13.2898H14.9924C14.9924 13.2898 14.9883 13.2815 14.9924 13.4795C15.0139 14.5336 14.9822 14.7264 14.9924 15.9875C14.9621 16.0178 13.4723 15.9829 11.7105 15.9875H8.50737V14.6468V13.2898C8.97226 13.2898 9.43714 13.2898 9.90203 13.2898C9.90203 11.3734 9.90203 9.45966 9.90203 7.54329C8.60592 7.55837 6.57206 7.55082 5.41558 7.54329C5.32721 9.71586 5.36422 10.6952 5.41558 13.2898C5.93474 13.3095 6.45401 13.2726 6.97326 13.2898L6.99885 14.665L7.02444 15.9875H3.61956C1.74687 15.9875 0.206719 16.0131 0.196995 15.9875Z"
+                  fill="currentColor" />
+              </svg>
+              <span class="font-medium">Hire Us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero__section relative overflow-hidden">
+    <div class="absolute top-0 right-0">
+      <svg class="w-44 lg:w-80" viewBox="0 0 450 556" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="277" cy="63" r="225" fill="url(#paint0_linear_25:217)"></circle>
+        <circle cx="17.9997" cy="182" r="18" fill="url(#paint1_radial_25:217)"></circle>
+        <circle cx="76.9997" cy="288" r="34" fill="url(#paint2_radial_25:217)"></circle>
+        <circle cx="325.486" cy="302.87" r="180" transform="rotate(-37.6852 325.486 302.87)"
+          fill="url(#paint3_linear_25:217)"></circle>
+        <circle opacity="0.8" cx="184.521" cy="315.521" r="132.862" transform="rotate(114.874 184.521 315.521)"
+          stroke="url(#paint4_linear_25:217)"></circle>
+        <circle opacity="0.8" cx="356" cy="290" r="179.5" transform="rotate(-30 356 290)"
+          stroke="url(#paint5_linear_25:217)"></circle>
+        <circle opacity="0.8" cx="191.659" cy="302.659" r="133.362" transform="rotate(133.319 191.659 302.659)"
+          fill="url(#paint6_linear_25:217)"></circle>
+        <defs>
+          <linearGradient id="paint0_linear_25:217" x1="-54.5003" y1="-178" x2="222" y2="288"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4A6CF7"></stop>
+            <stop offset="1" stop-color="#4A6CF7" stop-opacity="0"></stop>
+          </linearGradient>
+          <radialGradient id="paint1_radial_25:217" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(17.9997 182) rotate(90) scale(18)">
+            <stop offset="0.145833" stop-color="#4A6CF7" stop-opacity="0"></stop>
+            <stop offset="1" stop-color="#4A6CF7" stop-opacity="0.08"></stop>
+          </radialGradient>
+          <radialGradient id="paint2_radial_25:217" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(76.9997 288) rotate(90) scale(34)">
+            <stop offset="0.145833" stop-color="#4A6CF7" stop-opacity="0"></stop>
+            <stop offset="1" stop-color="#4A6CF7" stop-opacity="0.08"></stop>
+          </radialGradient>
+          <linearGradient id="paint3_linear_25:217" x1="226.775" y1="-66.1548" x2="292.157" y2="351.421"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4A6CF7"></stop>
+            <stop offset="1" stop-color="#4A6CF7" stop-opacity="0"></stop>
+          </linearGradient>
+          <linearGradient id="paint4_linear_25:217" x1="184.521" y1="182.159" x2="184.521" y2="448.882"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4A6CF7"></stop>
+            <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+          </linearGradient>
+          <linearGradient id="paint5_linear_25:217" x1="356" y1="110" x2="356" y2="470" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4A6CF7"></stop>
+            <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+          </linearGradient>
+          <linearGradient id="paint6_linear_25:217" x1="118.524" y1="29.2497" x2="166.965" y2="338.63"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4A6CF7"></stop>
+            <stop offset="1" stop-color="#4A6CF7" stop-opacity="0"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="absolute bottom-0 left-0">
+      <svg width="100%" height="100%" viewBox="0 0 364 201" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M5.88928 72.3303C33.6599 66.4798 101.397 64.9086 150.178 105.427C211.155 156.076 229.59 162.093 264.333 166.607C299.076 171.12 337.718 183.657 362.889 212.24"
+          stroke="url(#paint0_linear_25:218)"></path>
+        <path
+          d="M-22.1107 72.3303C5.65989 66.4798 73.3965 64.9086 122.178 105.427C183.155 156.076 201.59 162.093 236.333 166.607C271.076 171.12 309.718 183.657 334.889 212.24"
+          stroke="url(#paint1_linear_25:218)"></path>
+        <path
+          d="M-53.1107 72.3303C-25.3401 66.4798 42.3965 64.9086 91.1783 105.427C152.155 156.076 170.59 162.093 205.333 166.607C240.076 171.12 278.718 183.657 303.889 212.24"
+          stroke="url(#paint2_linear_25:218)"></path>
+        <path
+          d="M-98.1618 65.0889C-68.1416 60.0601 4.73364 60.4882 56.0734 102.431C120.248 154.86 139.905 161.419 177.137 166.956C214.37 172.493 255.575 186.165 281.856 215.481"
+          stroke="url(#paint3_linear_25:218)"></path>
+        <circle opacity="0.8" cx="214.505" cy="60.5054" r="49.7205" transform="rotate(-13.421 214.505 60.5054)"
+          stroke="url(#paint4_linear_25:218)"></circle>
+        <circle cx="220" cy="63" r="43" fill="url(#paint5_radial_25:218)"></circle>
+        <defs>
+          <linearGradient id="paint0_linear_25:218" x1="184.389" y1="69.2405" x2="184.389" y2="212.24"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4A6CF7" stop-opacity="0"></stop>
+            <stop offset="1" stop-color="#4A6CF7"></stop>
+          </linearGradient>
+          <linearGradient id="paint1_linear_25:218" x1="156.389" y1="69.2405" x2="156.389" y2="212.24"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4A6CF7" stop-opacity="0"></stop>
+            <stop offset="1" stop-color="#4A6CF7"></stop>
+          </linearGradient>
+          <linearGradient id="paint2_linear_25:218" x1="125.389" y1="69.2405" x2="125.389" y2="212.24"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4A6CF7" stop-opacity="0"></stop>
+            <stop offset="1" stop-color="#4A6CF7"></stop>
+          </linearGradient>
+          <linearGradient id="paint3_linear_25:218" x1="93.8507" y1="67.2674" x2="89.9278" y2="210.214"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4A6CF7" stop-opacity="0"></stop>
+            <stop offset="1" stop-color="#4A6CF7"></stop>
+          </linearGradient>
+          <linearGradient id="paint4_linear_25:218" x1="214.505" y1="10.2849" x2="212.684" y2="99.5816"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4A6CF7"></stop>
+            <stop offset="1" stop-color="#4A6CF7" stop-opacity="0"></stop>
+          </linearGradient>
+          <radialGradient id="paint5_radial_25:218" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(220 63) rotate(90) scale(43)">
+            <stop offset="0.145833" stop-color="white" stop-opacity="0"></stop>
+            <stop offset="1" stop-color="white" stop-opacity="0.08"></stop>
+          </radialGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="container max-w-4xl mx-auto py-32 px-4 relative z-10">
+      <header class="text-center dark:text-gray-100">
+        <h1 class="text-3xl lg:text-4xl leading-snug font-bold font-heading mb-4">Download the Best Free and
+          Premium
+          <span
+            class="block text-5xl text-transparent leading-tight bg-clip-text bg-gradient-to-r from-primary to-[#50bfc2]">Tailwind
+            CSS Templates and UI Kits</span></h1>
+        <h4 class="text-lg font-medium text-gray-700">Discover hundreds of easy to customize Tailwind CSS Templates for
+          -
+          Business, Landing Page, Admin Dashboard and
+          Resume Portfolio Websites to Speed up Your Web Development Process.</h4>
+      </header>
+      <div
+        class="search__form max-w-xl mx-auto flex items-center justify-between bg-white border border-solid border-gray-100 rounded-full shadow-lg p-1 mt-16">
+        <div class="w-full py-2 px-4">
+          <input aria-label="..." type="search" placeholder="Search templates ..."
+            class="search__form-input w-full text-sm placeholder:text-slate-400 focus:outline-none cursor-pointer hover:cursor-auto focus:cursor-auto pr-2">
+        </div>
+        <div
+          class="bg-primary cursor-pointer flex items-center space-x-3 border border-solid border-primary rounded-3xl py-2 px-3">
+          <svg aria-hidden="true" data-prefix="far" data-icon="search" viewBox="0 0 512 512" width="16" height="16"
+            class="search_svg__svg-inline--fa search_svg__fa-search search_svg__fa-w-16 search_svg__fa-2x search-icon search__form-search text-white">
+            <path fill="currentcolor"
+              d="M508.5 468.9 387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3.0-17zM208 368c-88.4.0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z">
+            </path>
+          </svg>
+          <span class="text-sm text-white cursor-pointer">Search</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#4A6CF7]/[0.1] py-12 px-3">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="font-heading text-xl font-medium mb-8">Can’t find a suitable template for your business website or need
+        a
+        unique website design?</h2>
+      <a class="text-white bg-primary rounded-3xl py-3 px-4" href="">Convert Figma design to Tailwind template</a>
+    </div>
+  </section>
+
+  <section class="bg-gray-50">
+    <div class="container max-w-screen-xl mx-auto py-8 px-4">
+      <div class="text-center mb-8 lg:mb-16">
+        <ul class="bg-gray-200 rounded-full inline-flex justify-center items-center text-sm py-2 px-2">
+          <li><a class="bg-white rounded-full leading-none py-1 px-3" href="">All</a></li>
+          <li><a class="rounded-full leading-none py-1 px-3" href="">Templates</a></li>
+          <li><a class="rounded-full leading-none py-1 px-3" href="">UI Kits</a></li>
+          <li><a class="rounded-full leading-none py-1 px-3" href="">Jamstack</a></li>
+        </ul>
+      </div>
+      <div x-data="posts" class="grid grid-cols-12 gap-8">
+        <template x-for="(post, index) in posts" :key="post.id">
+          <div class="post-card col-span-12 lg:col-span-4 bg-white flex flex-col justify-between rounded-lg shadow-md">
+            <div class="post-card__content">
+              <div class="post-card__media aspect-w-3 aspect-h-2 relative group overflow-hidden rounded-t-lg">
+                <img class="absolute top-0 left-0 w-full h-full object-cover" x-bind:src="`assets/images/${post.image}`"
+                  :alt="post.title">
+              </div>
+              <div class="post-card__body p-6">
+                <h3 class="text-gray-800 dark:text-gray-100 text-lg font-medium font-heading" x-text="post.title">
+                </h3>
+                <p class="text-sm text-gray-600" x-text="post.description"></p>
+              </div>
+            </div>
+            <div class="post-card__button flex items-center space-x-3 px-6 pb-6">
+              <span class="text-lg font-bold foont-heading px-2" x-text="post.price"></span>
+              <a class="flex-1 flex items-center justify-center space-x-2 text-gray-600 text-sm hover:text-primary hover:bg-blue-100 border border-solid border-gray-300 rounded-md py-2 px-3"
+                href="">
+                <svg width="17" height="14" viewBox="0 0 17 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8.39742 0.5979C10.121 0.5979 11.7551 1.19588 13.1779 2.30295C14.6007 3.40113 15.8121 5.01002 16.682 7.02214C16.747 7.17487 16.747 7.35346 16.682 7.49891C14.9421 11.5232 11.8446 13.9312 8.39742 13.9312H8.38929C4.95027 13.9312 1.8527 11.5232 0.112867 7.49891C0.0478268 7.35346 0.0478268 7.17487 0.112867 7.02214C1.8527 2.99709 4.95027 0.5979 8.38929 0.5979H8.39742ZM8.39742 4.03224C6.60067 4.03224 5.14539 5.47871 5.14539 7.26457C5.14539 9.04234 6.60067 10.4888 8.39742 10.4888C10.186 10.4888 11.6413 9.04234 11.6413 7.26457C11.6413 5.47871 10.186 4.03224 8.39742 4.03224Z"
+                    fill="currentColor"></path>
+                  <path opacity="0.4"
+                    d="M10.4232 7.26202C10.4232 8.36909 9.51261 9.27415 8.39879 9.27415C7.27684 9.27415 6.36627 8.36909 6.36627 7.26202C6.36627 7.12465 6.38253 6.99617 6.40692 6.86687H6.44757C7.35001 6.86687 8.08172 6.15576 8.11424 5.26606C8.20367 5.25071 8.30123 5.24182 8.39879 5.24182C9.51261 5.24182 10.4232 6.14687 10.4232 7.26202Z"
+                    fill="currentColor"></path>
+                </svg>
+                <span>Preview</span>
+              </a>
+              <a class="flex-1 flex items-center justify-center space-x-2 text-primary text-sm hover:text-primary bg-blue-200 hover:bg-blue-100 border border-solid border-blue-200 hover:border-blue-100 rounded-md py-2 px-3"
+                href="">
+                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9.23231 1.43087C9.23231 0.970626 8.85922 0.597534 8.39897 0.597534C7.93872 0.597534 7.56564 0.970626 7.56564 1.43087V8.16946L5.23817 5.84196C4.91273 5.51652 4.3851 5.51652 4.05966 5.84196C3.73422 6.16738 3.73422 6.69504 4.05966 7.02046L7.22047 10.1812C7.87131 10.8321 8.92656 10.8321 9.57747 10.1812L12.7366 7.02213C13.0621 6.69663 13.0621 6.16904 12.7366 5.84354C12.4112 5.51814 11.8836 5.51814 11.5581 5.84354L9.23231 8.16938V1.43087Z"
+                    fill="currentColor"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M1.73073 8.93115C2.19097 8.93115 2.56407 9.30424 2.56407 9.76449V11.4312C2.56407 11.8914 2.93717 12.2645 3.3974 12.2645H13.3974C13.8576 12.2645 14.2307 11.8914 14.2307 11.4312V9.76449C14.2307 9.30424 14.6038 8.93115 15.0641 8.93115C15.5243 8.93115 15.8974 9.30424 15.8974 9.76449V11.4312C15.8974 12.8119 14.7781 13.9312 13.3974 13.9312H3.3974C2.01669 13.9312 0.8974 12.8119 0.8974 11.4312V9.76449C0.8974 9.30424 1.2705 8.93115 1.73073 8.93115Z"
+                    fill="currentColor"></path>
+                </svg>
+                <span>Download</span>
+              </a>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <footer>
+    <section class="bg-gray-50 overflow-hidden">
+      <div
+        class="container max-w-screen-lg mx-auto relative px-6 before:absolute before:content-[''] before:w-[200%] before:h-[50%] before:-left-[50%] before:top-[50%] before:bg-[#252f3f] before:z-0">
+        <div class="relative bg-white rounded-lg py-8 lg:py-16 px-4">
+          <div
+            class="absolute w-16 h-40 top-2 lg:top-6 right-2 lg:right-8 z-10 pattern-dots pattern-primary pattern-bg-white pattern-size-4 pattern-opacity-30">
+          </div>
+          <div
+            class="absolute bottom-0 lg:bottom-8 left-0 lg:left-12 w-16 h-16 z-10 rounded-full pattern-diagonal-lines pattern-primary pattern-bg-white pattern-size-2 pattern-opacity-30">
+          </div>
+          <div class="relative z-20 text-center mb-8">
+            <h2 class="text-2xl lg:text-4xl font-heading font-bold mb-3">Get notified when we add new template</h2>
+            <p>Join our newsletter and be the first to know about new product release, discounts and useful
+              resources!</p>
+          </div>
+          <div class="form-wrapper relative z-20">
+            <form action="https://newsletter.uideck.com/subscribe" method="POST" accept-charset="utf-8">
+              <div class="max-w-lg mx-auto flex items-center space-x-4">
+                <input
+                  class="w-full text-sm text-body-text bg-body-primary placeholder:text-slate-400 focus:outline-none cursor-pointer hover:cursor-auto focus:cursor-auto border border-solid border-gray-200 rounded-md py-3 px-4"
+                  type="email" name="email" id="email" placeholder="Enter your email address">
+                <button type="submit" name="submit" id="submit"
+                  class="text-sm text-white text-center font-medium uppercase bg-primary rounded-md py-3 px-4">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-[#252f3f] dark:bg-slate-800">
+      <div class="container w-full max-w-screen-xl mx-auto py-24 px-4 lg:px-16">
+        <div class="grid grid-cols-12 gap-8">
+          <div class="col-span-12 lg:col-span-4">
+            <a class="navbar__logo flex items-center" href="/" title="Back to home">
+              <span class="w-10 mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns:serif="http://www.serif.com/" width="100%" height="100%" viewBox="0 0 520 400" version="1.1"
+                  xml:space="preserve"
+                  style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                  <g transform="matrix(1.09937,0,0,1.09822,-25.7956,-34.8657)">
+                    <g id="top" transform="matrix(1.29641,0,0,1.63704,-32.198,-253.2)">
+                      <path
+                        d="M42.991,396.553C42.991,396.553 37.461,278.03 138.267,237.677C201.106,212.522 274.998,217.771 311.163,214.243C341.795,211.254 375.932,205.325 407.789,174.063C407.789,174.063 402.924,238.701 335.936,260.176C267.07,282.252 181.459,264.042 121.392,292.765C79.112,312.982 66.991,342.108 55.148,366.845C47.09,383.68 42.991,396.553 42.991,396.553Z"
+                        style="fill:url(#_Linear1);" />
+                    </g>
+                    <g id="bottom" transform="matrix(1.17909,0,0,1.4889,-27.161,-78.4566)">
+                      <path
+                        d="M42.937,318.643C42.937,318.643 41.76,272.454 116.781,239.02C172.998,213.967 249.875,219.309 311.163,214.243C340.888,211.786 375.932,205.325 407.789,174.063C407.789,174.063 389.771,248.077 325.759,260.624C227.557,279.871 150.655,250.794 87.185,280.675C54.275,296.169 42.937,318.643 42.937,318.643Z"
+                        style="fill:url(#_Linear2);" />
+                    </g>
+                  </g>
+                  <defs>
+                    <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse"
+                      gradientTransform="matrix(364.84,0,0,222.49,42.9496,285.308)">
+                      <stop offset="0" style="stop-color:rgb(74,108,247);stop-opacity:1" />
+                      <stop offset="1" style="stop-color:rgb(165,182,251);stop-opacity:1" />
+                      <stop offset="1" style="stop-color:white;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse"
+                      gradientTransform="matrix(364.84,0,0,222.49,42.9496,285.308)">
+                      <stop offset="0" style="stop-color:rgb(74,108,247);stop-opacity:1" />
+                      <stop offset="1" style="stop-color:rgb(165,182,251);stop-opacity:1" />
+                      <stop offset="1" style="stop-color:white;stop-opacity:1" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>
+              <span class="text-xl text-gray-50 font-heading font-bold">Tailwind</span>
+              <span class="text-xl text-primary font-heading font-bold">Flow</span>
+            </a>
+            <div class="py-6">
+              <p class="text-gray-50">Download Free and Premium Tailwind CSS Templates and UI Kits</p>
+            </div>
+            <div class="flex item-center space-x-2">
+              <a href=""
+                class="text-primary dark:text-gray-400 hover:text-white dark:hover:text-white bg-gray-100 dark:bg-slate-800 hover:bg-primary dark:hover:bg-primary transition-all duration-100 ease w-8 h-8 rounded-md flex item-center justify-center group">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                  class="w-3 fill-current transition-all duration-300 ease group-hover:rotate-[360deg]">
+                  <path
+                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+                </svg>
+              </a>
+              <a href=""
+                class="text-primary dark:text-gray-400 hover:text-white dark:hover:text-white bg-gray-100 dark:bg-slate-800 hover:bg-primary dark:hover:bg-primary transition-all duration-100 ease w-8 h-8 rounded-md flex item-center justify-center group">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                  class="w-4 fill-current transition-all duration-300 ease group-hover:rotate-[360deg]">
+                  <path
+                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                </svg>
+              </a>
+              <a href=""
+                class="text-primary dark:text-gray-400 hover:text-white dark:hover:text-white bg-gray-100 dark:bg-slate-800 hover:bg-primary dark:hover:bg-primary transition-all duration-100 ease w-8 h-8 rounded-md flex item-center justify-center group">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                  class="w-4 fill-current transition-all duration-300 ease group-hover:rotate-[360deg]">
+                  <path
+                    d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+                </svg>
+              </a>
+              <a href=""
+                class="text-primary dark:text-gray-400 hover:text-white dark:hover:text-white bg-gray-100 dark:bg-slate-800 hover:bg-primary dark:hover:bg-primary transition-all duration-100 ease w-8 h-8 rounded-md flex item-center justify-center group">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
+                  class="w-4 fill-current transition-all duration-300 ease group-hover:rotate-[360deg]">
+                  <path
+                    d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z" />
+                </svg>
+              </a>
+              <a href=""
+                class="text-primary dark:text-gray-400 hover:text-white dark:hover:text-white bg-gray-100 dark:bg-slate-800 hover:bg-primary dark:hover:bg-primary transition-all duration-100 ease w-8 h-8 rounded-md flex item-center justify-center group">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                  class="w-4 fill-current transition-all duration-300 ease group-hover:rotate-[360deg]">
+                  <path
+                    d="M232 237.2c31.8-15.2 48.4-38.2 48.4-74 0-70.6-52.6-87.8-113.3-87.8H0v354.4h171.8c64.4 0 124.9-30.9 124.9-102.9 0-44.5-21.1-77.4-64.7-89.7zM77.9 135.9H151c28.1 0 53.4 7.9 53.4 40.5 0 30.1-19.7 42.2-47.5 42.2h-79v-82.7zm83.3 233.7H77.9V272h84.9c34.3 0 56 14.3 56 50.6 0 35.8-25.9 47-57.6 47zm358.5-240.7H376V94h143.7v34.9zM576 305.2c0-75.9-44.4-139.2-124.9-139.2-78.2 0-131.3 58.8-131.3 135.8 0 79.9 50.3 134.7 131.3 134.7 61.3 0 101-27.6 120.1-86.3H509c-6.7 21.9-34.3 33.5-55.7 33.5-41.3 0-63-24.2-63-65.3h185.1c.3-4.2.6-8.7.6-13.2zM390.4 274c2.3-33.7 24.7-54.8 58.5-54.8 35.4 0 53.2 20.8 56.2 54.8H390.4z" />
+                </svg>
+              </a>
+              <a href=""
+                class="text-primary dark:text-gray-400 hover:text-white dark:hover:text-white bg-gray-100 dark:bg-slate-800 hover:bg-primary dark:hover:bg-primary transition-all duration-100 ease w-8 h-8 rounded-md flex item-center justify-center group">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                  class="w-4 fill-current transition-all duration-300 ease group-hover:rotate-[360deg]">
+                  <path
+                    d="M256 8C119.252 8 8 119.252 8 256s111.252 248 248 248 248-111.252 248-248S392.748 8 256 8zm163.97 114.366c29.503 36.046 47.369 81.957 47.835 131.955-6.984-1.477-77.018-15.682-147.502-6.818-5.752-14.041-11.181-26.393-18.617-41.614 78.321-31.977 113.818-77.482 118.284-83.523zM396.421 97.87c-3.81 5.427-35.697 48.286-111.021 76.519-34.712-63.776-73.185-116.168-79.04-124.008 67.176-16.193 137.966 1.27 190.061 47.489zm-230.48-33.25c5.585 7.659 43.438 60.116 78.537 122.509-99.087 26.313-186.36 25.934-195.834 25.809C62.38 147.205 106.678 92.573 165.941 64.62zM44.17 256.323c0-2.166.043-4.322.108-6.473 9.268.19 111.92 1.513 217.706-30.146 6.064 11.868 11.857 23.915 17.174 35.949-76.599 21.575-146.194 83.527-180.531 142.306C64.794 360.405 44.17 310.73 44.17 256.323zm81.807 167.113c22.127-45.233 82.178-103.622 167.579-132.756 29.74 77.283 42.039 142.053 45.189 160.638-68.112 29.013-150.015 21.053-212.768-27.882zm248.38 8.489c-2.171-12.886-13.446-74.897-41.152-151.033 66.38-10.626 124.7 6.768 131.947 9.055-9.442 58.941-43.273 109.844-90.795 141.978z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="col-span-12 lg:col-span-4">
+            <h3 class="text-xl text-gray-50 dark:text-gray-200 font-bold font-heading mb-6">Services</h3>
+            <ul>
+              <li
+                class="text-gray-100 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300 ease mb-3">
+                <a href="">Convert Figma design to Tailwind template</a></li>
+              <li
+                class="text-gray-100 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300 ease mb-3">
+                <a href="">Convert Figma design to Hugo Site</a></li>
+              <li
+                class="text-gray-100 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300 ease mb-3">
+                <a href="">Convert Word to Markdown</a></li>
+              <li
+                class="text-gray-100 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300 ease mb-3">
+                <a href="">Rebuild existing website with Hugo</a></li>
+            </ul>
+          </div>
+          <div class="col-span-12 lg:col-span-4">
+            <h3 class="text-xl text-gray-50 dark:text-gray-200 font-bold font-heading mb-6">Help & Support</h3>
+            <ul>
+              <li
+                class="text-gray-100 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300 ease mb-3">
+                <a href="">Blog</a></li>
+              <li
+                class="text-gray-100 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300 ease mb-3">
+                <a href="">FAQs</a></li>
+              <li
+                class="text-gray-100 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300 ease mb-3">
+                <a href="">Docs</a></li>
+              <li
+                class="text-gray-100 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300 ease mb-3">
+                <a href="">Privacy policy</a></li>
+              <li
+                class="text-gray-100 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300 ease mb-3">
+                <a href="">Terms and Conditions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="bg-[#252f3f] py-4 px-6">
+      <div class="text-center text-gray-100">
+        <p>© <span x-text="new Date().getFullYear()"></span> TailwindFlow. All Rights Reserved. Design by <a
+            class="text-primary font-semibold" href="https://kreasify.com">Kreasify</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+
+</html>
