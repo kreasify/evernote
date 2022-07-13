@@ -1,13 +1,14 @@
 menus:
 - id: 1
-  label: home
+  label: Why Evernote
   url: /
 - id: 2
   label: Features
   url: features
   submenu:
   - id: 1
-    label: Features
+    label: Sync and Organize
+    icon: ''
     url: features
   - id: 2
     label: Single Features
