@@ -556,17 +556,18 @@
                     </div>
                   </div>
                   <div @click="selectedPrice = 1 " class="flex items-center space-x-3 rounded-md shadow-lg px-4"
-                  :class="selectedPrice === 1 ? 'border border-solid border-indigo-500 shadow-indigo-300/50' : 'shadow-gray-300/50'">
+                    :class="selectedPrice === 1 ? 'border border-solid border-indigo-500 shadow-indigo-300/50' : 'shadow-gray-300/50'">
                     <div class="w-4 h-4 border border-solid rounded-full p-[3px]"
                       x-bind:class="selectedPrice === 1 ? 'border-indigo-500' : 'border-gray-700'">
                       <span x-show="selectedPrice === 1" x-cloak
                         class="block bg-indigo-500 rounded-full w-fulll h-full"></span>
                     </div>
                     <div class="mb-6">
-                      <input type="radio" name="plan" id="premium" class="appearance-none" value="price_1LKKOmG9lZTwpgcPIkYhO5EG">
+                      <input type="radio" name="plan" id="premium" class="appearance-none"
+                        value="price_1LKKOmG9lZTwpgcPIkYhO5EG">
                       <label for="premium">
                         <h4 class="font-medium text-gray-700">Premium</h4>
-                        <div class="font-bold text-gray-900 pr-4">
+                        <div class="font-bold text-gray-900 pr-6">
                           <span class="text-3xl">500</span>
                           <span class="text-xl">SEK</span>
                           <span class="font-medium">/year</span>
@@ -581,18 +582,8 @@
                 <label for="card-element">
                   Credit or debit card
                 </label>
-                <div id="card-element" class="StripeElement StripeElement--empty">
-                  <div class="__PrivateStripeElement"
-                    style="margin: 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important;">
-                    <iframe name="__privateStripeFrame8126" frameborder="0" allowtransparency="true" scrolling="no"
-                      allow="payment *"
-                      src="https://js.stripe.com/v3/elements-inner-card-b54aca11d9705c95df51bafbacac9139.html#wait=false&amp;mids[guid]=NA&amp;mids[muid]=fdd3158e-6a30-47b0-ae2b-d5fd0bc30d71211325&amp;mids[sid]=NA&amp;style[base][color]=%2332325d&amp;style[base][fontFamily]=%22Helvetica+Neue%22%2C+Helvetica%2C+sans-serif&amp;style[base][fontSmoothing]=antialiased&amp;style[base][fontSize]=16px&amp;style[base][::placeholder][color]=%23aab7c4&amp;style[invalid][color]=%23fa755a&amp;style[invalid][iconColor]=%23fa755a&amp;rtl=false&amp;componentName=card&amp;keyMode=test&amp;apiKey=pk_test_51LKJ0AG9lZTwpgcP9nreB8t6BJG3OEN5Vk4BUkQrboz40MmsKKs6ccYZ98GeIr31t1N0MqIfeCMd0Ofm4EfdZtKm00cPzBQSi0&amp;referrer=https%3A%2F%2Femiwebdb.kortaben.work%2Fhome%2Fusers%2F56&amp;controllerId=__privateStripeController8121"
-                      title="Secure card payment input frame"
-                      style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translate(0px) !important; color-scheme: light only !important; height: 19.2px;"></iframe><input
-                      class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false"
-                      maxlength="1"
-                      style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: -1px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;">
-                  </div>
+                <div id="card-element" class="StripeElement StripeElement--empty max-w-md">
+                  
                 </div>
 
                 <!-- Used to display form errors. -->
