@@ -61,9 +61,8 @@
                   class="menu__item relative group font-heading text-gray-700 font-medium transition duration-300 ease-ease py-1 px-4 lg:px-3 mb-0">
                   <a class="menu__item-link text-current" href="">WHY EVERNOTE</a>
                 </li>
-
                 <li @click="selectedMenu !== 1 ? selectedMenu = 1 : selectedMenu = null"
-                  class="menu__item group font-heading text-gray-700 dark:text-gray-100 font-medium transition duration-300 ease-ease py-1 px-4 lg:px-3 mb-0">
+                  class="menu__item group font-heading text-gray-900 font-medium transition duration-300 ease-ease py-1 px-4 lg:px-3 mb-0">
                   <div>
                     <button
                       class="w-full flex items-center justify-between lg:justify-start text-current cursor-pointer focus:outline-none">
@@ -81,9 +80,10 @@
                     <div
                       class="bg-white w-full left-0 top-full transition-all duration-200 ease-[ease] origin-top z-10 lg:shadow-md lg:rounded-lg py-3 pl-0 mt-1 mb-0"
                       :class="{'static visible scale-y-100 opacity-100': selectedMenu === 1, 'absolute invisible lg:group-hover:visible opacity-0 lg:group-hover:opacity-100': selectedMenu !== 1 }">
-                      <ul class="submenu flex flex-wrap whitespace-nowrap max-w-screen-xl mx-auto px-3"
+                      <ul class="submenu grid grid-cols-4 whitespace-nowrap max-w-screen-xl mx-auto pl-3 pr-32"
                         aria-hidden="true">
-                        <li class="submenu__item text-sm text-gray-700 py-1 px-4 mb-0">
+                        <li
+                          class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 group py-4 pl-4 pr-6 mb-0">
                           <a class="submenu__item-link text-current flex space-x-3" href="">
                             <div class="flex-none w-14">
                               <svg width="56" height="57" viewBox="0 0 56 57" fill="none"
@@ -122,12 +122,13 @@
                               </svg>
                             </div>
                             <div>
-                              <h4 class="text-lg text-gray-900 font-medium">Sync and Organize</h4>
+                              <h4 class="text-lg text-current font-medium">Sync and Organize</h4>
                               <p class="text-sm text-gray-600">Keep your notes handy</p>
                             </div>
                           </a>
                         </li>
-                        <li class="submenu__item text-sm text-gray-700 py-1 px-4 mb-0">
+                        <li
+                          class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 group py-4 pl-4 pr-6 mb-0">
                           <a class="submenu__item-link text-current flex space-x-3" href="">
                             <div class="flex-none w-14">
                               <svg width="56" height="57" viewBox="0 0 56 57" fill="none"
@@ -188,12 +189,13 @@
 
                             </div>
                             <div>
-                              <h4 class="text-lg text-gray-900 font-medium">Web Clipper</h4>
+                              <h4 class="text-lg text-current font-medium">Web Clipper</h4>
                               <p class="text-sm text-gray-600">A save button for the web</p>
                             </div>
                           </a>
                         </li>
-                        <li class="submenu__item text-sm text-gray-700 py-1 px-4 mb-0">
+                        <li
+                          class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 group py-4 pl-4 pr-6 mb-0">
                           <a class="submenu__item-link text-current flex space-x-3" href="">
                             <div class="flex-none w-14">
                               <svg width="56" height="56" viewBox="0 0 56 56" fill="none"
@@ -212,12 +214,13 @@
                               </svg>
                             </div>
                             <div>
-                              <h4 class="text-lg text-gray-900 font-medium">Tasks</h4>
+                              <h4 class="text-lg text-current font-medium">Tasks</h4>
                               <p class="text-sm text-gray-600">Bring notes & to-dos together</p>
                             </div>
                           </a>
                         </li>
-                        <li class="submenu__item text-sm text-gray-700 py-1 px-4 mb-0">
+                        <li
+                          class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 group py-4 pl-4 pr-6 mb-0">
                           <a class="submenu__item-link text-current flex space-x-3" href="">
                             <div class="flex-none w-14">
                               <svg width="56" height="56" viewBox="0 0 56 56" fill="none"
@@ -280,12 +283,13 @@
 
                             </div>
                             <div>
-                              <h4 class="text-lg text-gray-900 font-medium">Calendar</h4>
+                              <h4 class="text-lg text-current font-medium">Calendar</h4>
                               <p class="text-sm text-gray-600">Connect schedules and notes</p>
                             </div>
                           </a>
                         </li>
-                        <li class="submenu__item text-sm text-gray-700 py-1 px-4 mb-0">
+                        <li
+                          class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 group py-4 pl-4 pr-6 mb-0">
                           <a class="submenu__item-link text-current flex space-x-3" href="">
                             <div class="flex-none w-14">
                               <svg width="56" height="57" viewBox="0 0 56 57" fill="none"
@@ -321,12 +325,13 @@
                               </svg>
                             </div>
                             <div>
-                              <h4 class="text-lg text-gray-900 font-medium">Templates</h4>
+                              <h4 class="text-lg text-current font-medium">Templates</h4>
                               <p class="text-sm text-gray-600">Create better notes, faster</p>
                             </div>
                           </a>
                         </li>
-                        <li class="submenu__item text-sm text-gray-700 py-1 px-4 mb-0">
+                        <li
+                          class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 group py-4 pl-4 pr-6 mb-0">
                           <a class="submenu__item-link text-current flex space-x-3" href="">
                             <div class="flex-none w-14">
                               <svg width="56" height="57" viewBox="0 0 56 57" fill="none"
@@ -368,12 +373,13 @@
                               </svg>
                             </div>
                             <div>
-                              <h4 class="text-lg text-gray-900 font-medium">Document Scanning</h4>
+                              <h4 class="text-lg text-current font-medium">Document Scanning</h4>
                               <p class="text-sm text-gray-600">Go paperless with Evernote</p>
                             </div>
                           </a>
                         </li>
-                        <li class="submenu__item text-sm text-gray-700 py-1 px-4 mb-0">
+                        <li
+                          class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 group py-4 pl-4 pr-6 mb-0">
                           <a class="submenu__item-link text-current flex space-x-3" href="">
                             <div class="flex-none w-14">
                               <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56"
@@ -409,12 +415,13 @@
                               </svg>
                             </div>
                             <div>
-                              <h4 class="text-lg text-gray-900 font-medium">Search</h4>
+                              <h4 class="text-lg text-current font-medium">Search</h4>
                               <p class="text-sm text-gray-600">Find exactly what you need</p>
                             </div>
                           </a>
                         </li>
-                        <li class="submenu__item text-sm text-gray-700 py-1 px-4 mb-0">
+                        <li
+                          class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 group py-4 pl-4 pr-6 mb-0">
                           <a class="submenu__item-link text-current flex space-x-3" href="">
                             <div class="flex-none w-14">
                               <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56"
@@ -435,12 +442,83 @@
                               </svg>
                             </div>
                             <div>
-                              <h4 class="text-lg text-gray-900 font-medium">Home</h4>
+                              <h4 class="text-lg text-current font-medium">Home</h4>
                               <p class="text-sm text-gray-600">See your Evernote, your way</p>
                             </div>
                           </a>
                         </li>
                       </ul>
+                      <div class="max-w-screen-xl mx-auto pl-6 pt-6 mb-8">
+                        <a class="text-lg text-green-600 uppercase" href="">SEE ALL FEATURES →</a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li @click="selectedMenu !== 2 ? selectedMenu = 2 : selectedMenu = null"
+                  class="menu__item group font-heading text-gray-900 font-medium transition duration-300 ease-ease py-1 px-4 lg:px-3 mb-0">
+                  <div>
+                    <button
+                      class="w-full flex items-center justify-between lg:justify-start text-current cursor-pointer focus:outline-none">
+                      <span class="menu__link text-current">PLANS</span>
+                      <svg
+                        class="svg-inline--fa fa-angle-down fa-w-10 fa-2x w-3 h-3 transition duration-300 ease-in-out transform lg:group-hover:-rotate-180 ml-2 mb-1 lg:mb-0"
+                        :class="{'-rotate-90': selectedMenu === 2 }" aria-hidden="true" focusable="false"
+                        data-prefix="far" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path fill="currentColor"
+                          d="M151.5 347.8L3.5 201c-4.7-4.7-4.7-12.3 0-17l19.8-19.8c4.7-4.7 12.3-4.7 17 0L160 282.7l119.7-118.5c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17l-148 146.8c-4.7 4.7-12.3 4.7-17 0z"
+                          class=""></path>
+                      </svg>
+                    </button>
+                    <div
+                      class="bg-white w-full left-0 top-full transition-all duration-200 ease-[ease] origin-top z-10 lg:shadow-md lg:rounded-lg py-3 pl-0 mt-1 mb-0"
+                      :class="{'static visible scale-y-100 opacity-100': selectedMenu === 1, 'absolute invisible lg:group-hover:visible opacity-0 lg:group-hover:opacity-100': selectedMenu !== 1 }">
+                      <ul class="submenu grid grid-cols-4 whitespace-nowrap max-w-screen-xl mx-auto pl-3 pr-32"
+                        aria-hidden="true">
+                        <li
+                          class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 py-4 pl-4 pr-6 mb-0">
+                          <a class="submenu__item-link text-current" href="">
+                            <div>
+                              <h4 class="text-lg text-current font-medium mb-1">Evernote Free →</h4>
+                              <p class="text-sm text-gray-500 mb-4">Capture ideas and find them quickly</p>
+                              <p class="text-gray-700 font-bold">0</p>
+                            </div>
+                          </a>
+                        </li>
+                        <li
+                          class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 py-4 pl-4 pr-6 mb-0">
+                          <a class="submenu__item-link text-current" href="">
+                            <div>
+                              <h4 class="text-lg text-current font-medium mb-1">Evernote Personal →</h4>
+                              <p class="text-sm text-gray-500 mb-4">Capture ideas and find them quickly</p>
+                              <p class="text-gray-700 font-bold">IDR 69,000.00 / Month</p>
+                            </div>
+                          </a>
+                        </li>
+                        <li
+                          class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 py-4 pl-4 pr-6 mb-0">
+                          <a class="submenu__item-link text-current" href="">
+                            <div>
+                              <h4 class="text-lg text-current font-medium mb-1">Evernote Professional →</h4>
+                              <p class="text-sm text-gray-500 mb-4">Tackle any project, at work or home</p>
+                              <p class="text-gray-700 font-bold">IDR 89,000.00 / Month</p>
+                            </div>
+                          </a>
+                        </li>
+                        <li
+                          class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 py-4 pl-4 pr-6 mb-0">
+                          <a class="submenu__item-link text-current" href="">
+                            <div>
+                              <h4 class="text-lg text-current font-medium mb-1">Evernote Teams →</h4>
+                              <p class="text-sm text-gray-500 mb-4">Collaborate in one convenient place</p>
+                              <p class="text-gray-700 font-bold">IDR 150,000.00 / User / Month</p>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                      <div class="max-w-screen-xl mx-auto pl-6 pt-6 mb-8">
+                        <a class="text-lg text-green-600 uppercase" href="">COMPARE PLANS →</a>
+                      </div>
                     </div>
                   </div>
                 </li>
@@ -452,155 +530,6 @@
     </div>
   </header>
 
-  <section class="pt-32">
-    <div class="container max-w-screen-xl mx-auto py-10 px-8">
-      <div class="grid grid-cols-2 gap-x-5">
-        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-
-          <div class="px-4 py-5 sm:px-6">
-            <h3 class="text-lg leading-6 font-medium text-gray-900">User Information</h3>
-            <p class="mt-1 max-w-2xl text-sm text-gray-500">These are the user details.</p>
-          </div>
-          <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-            <dl class="sm:divide-y sm:divide-gray-200">
-              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Full name</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">info</dd>
-              </div>
-              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Email</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">info@emiweb.se</dd>
-              </div>
-              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Role</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                  subscriber
-                </dd>
-              </div>
-              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Permissions</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                  view users,
-                  update users,
-                  view archives,
-                </dd>
-              </div>
-
-              <form method="POST" action="https://emiwebdb.kortaben.work/home/users/56" accept-charset="UTF-8"><input
-                  name="_method" type="hidden" value="PUT"><input name="_token" type="hidden"
-                  value="7m5BEUPYJdwZI0R18hBNSdOZMLD0qVhHLBs7mzqV">
-
-                <div class="py-4 sm:py-5 sm:px-6">
-                  <div class="flex items-center space-x-6 pr-8 mb-4">
-                    <label for="current-password" class="flex-none w-1/3 text-sm text-gray-500 font-medium">Current
-                      Password</label>
-                    <input
-                      class="placeholder:text-gray-500 block w-full border border-gray-300 rounded-md py-2 px-3 shadow-sm focus:outline-none focus:border-indigo-500 focus:placeholder:text-transparent focus:ring-1 sm:text-sm"
-                      id="current-password" name="current_password" type="password" value="">
-                  </div>
-                  <div class="flex items-center space-x-6 pr-8">
-                    <label for="password" class="flex-none w-1/3 text-sm text-gray-500 font-medium">New Password</label>
-                    <input
-                      class="placeholder:text-gray-500 block w-full border border-gray-300 rounded-md py-2 px-3 shadow-sm focus:outline-none focus:border-indigo-500 focus:placeholder:text-transparent focus:ring-1 sm:text-sm"
-                      id="password" name="password" type="password" value="">
-                  </div>
-                </div>
-                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                  <button type="submit"
-                    class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update
-                    Password</button>
-                </div>
-              </form>
-            </dl>
-          </div>
-        </div>
-        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-          <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
-            <h3 class="text-lg leading-6 font-medium text-gray-900">Subscription</h3>
-            <p class="mt-1 max-w-2xl text-sm text-gray-500">Below is your plan</p>
-          </div>
-          <div class="px-4 sm:px-6">
-            <div class="text-gray-900 font-medium py-4">
-              <h4>You are using free subscription</h4>
-            </div>
-            <form action="/subscribe" method="post" id="payment-form"
-              data-secret="seti_1LL7rxG9lZTwpgcPiClnR5FL_secret_M3EKiNDO4C3dCOho30wRszLrCx5gWJC">
-              <input type="hidden" name="_token" value="7m5BEUPYJdwZI0R18hBNSdOZMLD0qVhHLBs7mzqV">
-              <div class="form-row">
-                <div class="flex items-center space-x-6 pr-8">
-                  <label for="cardholder-name" class="flex-none w-1/3 text-gray-500 font-medium">Cardholder's
-                    Name</label>
-                  <input type="text" id="cardholder-name"
-                    class="placeholder:text-gray-500 block w-full border border-gray-300 rounded-md py-2 px-3 shadow-sm focus:outline-none focus:border-indigo-500 focus:placeholder:text-transparent focus:ring-1 sm:text-sm">
-                </div>
-
-                <div x-data="{selectedPrice: 0}" class="flex space-x-6 my-8">
-                  <div @click="selectedPrice = 0 " class="flex items-center space-x-3 rounded-md shadow-lg px-4"
-                    :class="selectedPrice === 0 ? 'border border-solid border-indigo-500 shadow-indigo-300/50' : 'shadow-gray-300/50'">
-                    <div class="w-4 h-4 border border-solid rounded-full p-[3px]"
-                      x-bind:class="selectedPrice === 0 ? 'border-indigo-500' : 'border-gray-700'">
-                      <span x-show="selectedPrice === 0" x-cloak
-                        class="block bg-indigo-500 rounded-full w-fulll h-full"></span>
-                    </div>
-                    <div class="mb-6">
-                      <input type="radio" name="plan" id="standard" class="appearance-none"
-                        value="price_1LKiPZG9lZTwpgcPGNTI9VZn" checked="">
-                      <label for="standard">
-                        <h4 class="font-medium text-gray-700">Standard</h4>
-                        <div class="font-bold text-gray-900">
-                          <span class="text-3xl">175</span>
-                          <span class="text-xl">SEK</span>
-                          <span class="font-medium">/3 months</span>
-                        </div>
-                      </label>
-                    </div>
-                  </div>
-                  <div @click="selectedPrice = 1 " class="flex items-center space-x-3 rounded-md shadow-lg px-4"
-                    :class="selectedPrice === 1 ? 'border border-solid border-indigo-500 shadow-indigo-300/50' : 'shadow-gray-300/50'">
-                    <div class="w-4 h-4 border border-solid rounded-full p-[3px]"
-                      x-bind:class="selectedPrice === 1 ? 'border-indigo-500' : 'border-gray-700'">
-                      <span x-show="selectedPrice === 1" x-cloak
-                        class="block bg-indigo-500 rounded-full w-fulll h-full"></span>
-                    </div>
-                    <div class="mb-6">
-                      <input type="radio" name="plan" id="premium" class="appearance-none"
-                        value="price_1LKKOmG9lZTwpgcPIkYhO5EG">
-                      <label for="premium">
-                        <h4 class="font-medium text-gray-700">Premium</h4>
-                        <div class="font-bold text-gray-900 pr-6">
-                          <span class="text-3xl">500</span>
-                          <span class="text-xl">SEK</span>
-                          <span class="font-medium">/year</span>
-                        </div>
-                        <div class="text-sm text-gray-500 font-medium pt-2">
-                          <p>Renews at 300 SEK</p>
-                        </div>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <label for="card-element">
-                  Credit or debit card
-                </label>
-                <div id="card-element" class="StripeElement StripeElement--empty max-w-md">
-                  
-                </div>
-
-                <!-- Used to display form errors. -->
-                <div id="card-errors" role="alert"></div>
-              </div>
-
-              <button id="card-button">
-                Update Payment Method
-              </button>
-
-            </form>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section>
     <div class="container max-w-screen-xl mx-auto py-10 px-8">
