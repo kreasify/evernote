@@ -20,7 +20,7 @@
   <header x-data="{sideNav: false, atTop: true}" class="header relative">
     <div class="fixed w-full left-0 top-0 bg-white z-20 transition-all duration-500 ease-[ease] delay-300"
       :class="{ 'shadow-lg': !atTop }" x-on:scroll.window="atTop = (window.pageYOffset > 80) ? false : true;">
-      <div class="container w-full max-w-screen-xl mx-auto px-6 py-4">
+      <div class="container w-full max-w-screen-xl mx-auto px-6 py-6 lg:py-2">
         <div class="nav__wrapper grid grid-cols-12 items-center">
           <div class="nav__brand col-span-11 lg:col-span-2">
             <a class="navbar__logo" href="/" title="Back to home">
@@ -55,8 +55,8 @@
             class="nav__menu col-span-10 fixed lg:static w-full lg:w-full h-screen lg:h-auto left-0 top-0 bottom-0 overflow-scroll lg:overflow-auto bg-gray-900 lg:bg-transparent bg-opacity-40 transition-all duration-300 ease-[ease] z-20"
             :class="sideNav ? 'visible' : 'invisible lg:visible'">
             <nav x-data="{ selectedMenu: null }"
-              class="navbar w-80 lg:w-full h-full lg:h-auto bg-white lg:flex lg:justify-between lg:items-center shadow-md lg:shadow-none transition-all duration-300 ease-[ease]"
-              :class="sideNav ? 'ml-auto mr-0' : 'ml-auto -mr-80 lg:mr-0'">
+              class="navbar w-full h-full lg:h-auto bg-white lg:flex lg:justify-between lg:items-center shadow-md lg:shadow-none transition-all duration-300 ease-[ease]"
+              :class="sideNav ? 'mr-0' : '-mr-[100%] lg:mr-0'">
               <ul class="menu bg-white lg:flex lg:items-center pt-16 lg:pt-[3px] px-6 lg:px-0">
                 <li
                   class="menu__item border-b lg:border-b-[3px] border-solid border-gray-200 lg:border-transparent lg:hover:border-green-500">
@@ -79,7 +79,7 @@
                     </svg>
                   </button>
                   <div
-                    class="bg-white w-full left-0 top-full transition-all duration-200 ease-[ease] origin-top z-10 lg:shadow-md lg:rounded-lg py-3 pl-0 mt-1 mb-0"
+                    class="bg-white w-full left-0 top-full transition-all duration-200 ease-[ease] origin-top z-10 lg:shadow-lg"
                     :class="{'static visible scale-y-100 opacity-100': selectedMenu === 1, 'absolute invisible lg:group-hover:visible opacity-0 lg:group-hover:opacity-100': selectedMenu !== 1 }">
                     <ul
                       class="submenu lg:grid lg:grid-cols-4 whitespace-nowrap max-w-screen-xl mx-auto lg:pl-3 lg:pr-32"
@@ -472,7 +472,7 @@
                       </svg>
                     </button>
                     <div
-                      class="bg-white w-full left-0 top-full transition-all duration-200 ease-[ease] origin-top z-10 lg:shadow-md lg:rounded-lg py-3 pl-0 mt-1 mb-0"
+                      class="bg-white w-full left-0 top-full transition-all duration-200 ease-[ease] origin-top z-10 lg:shadow-lg"
                       :class="{'static visible scale-y-100 opacity-100': selectedMenu === 2, 'absolute invisible lg:group-hover:visible opacity-0 lg:group-hover:opacity-100': selectedMenu !== 2 }">
                       <ul class="submenu lg:grid lg:grid-cols-4 whitespace-nowrap max-w-screen-xl mx-auto lg:pl-3 pr-32"
                         aria-hidden="true">
@@ -5878,7 +5878,7 @@
 
   <section x-data="{atElement: 'scrollOne'}"
     @scroll.window="atElement = document.querySelector('#scrollThree').getBoundingClientRect().top <= 0 ? 'scrollThree' : (document.querySelector('#scrollTwo').getBoundingClientRect().top <= 0 ? 'scrollTwo' : 'scrollOne')">
-    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
+    <div class="container max-w-screen-xl mx-auto py-10 px-8">
       <div class="lg:grid lg:grid-cols-2 lg:gap-x-16">
         <div>
           <div class="sticky top-32">
@@ -5893,45 +5893,45 @@
             </div>
           </div>
         </div>
-        <div class="pr-24">
+        <div class="lg:pr-24">
           <div id="scrollOne">
-            <div class="lg:hidden">
+            <div class="lg:hidden px-12 mb-6">
               <img src="./../assets/images/we01_01_key_use_static_mobile_1@2x.png" alt="">
             </div>
             <div class="text-gray-900 pb-8 lg:pb-56">
-              <h3 class="text-4xl font-medium mb-3">Hit every deadline</h3>
-              <p class="text-xl font-medium">Link notes containing important action items to your calendar events, and
+              <h3 class="text-3xl lg:text-4xl font-medium mb-3">Hit every deadline</h3>
+              <p class="text-lg lg:text-xl font-medium">Link notes containing important action items to your calendar events, and
                 Evernote will
                 surface the info you need—right when you need it.</p>
             </div>
           </div>
           <div id="scrollTwo">
-            <div class="lg:hidden">
+            <div class="lg:hidden px-12 mb-6">
               <img src="./../assets/images/we01_02_key_use_static_mobile_2@2x.png" alt="">
             </div>
             <div class="text-gray-900 pb-8 lg:pb-56">
-              <h3 class="text-4xl font-medium mb-3">Capture more than words</h3>
-              <p class="text-xl font-medium">Get ideas down fast and combine them with images, sketches, documents, and
+              <h3 class="text-3xl lg:text-4xl font-medium mb-3">Capture more than words</h3>
+              <p class="text-lg lg:text-xl font-medium">Get ideas down fast and combine them with images, sketches, documents, and
                 audio recordings to turn passing thoughts into plans for action.</p>
             </div>
           </div>
           <div id="scrollThree">
-            <div class="lg:hidden">
+            <div class="lg:hidden px-12 mb-6">
               <img src="./../assets/images/we02_03_key_use_static_mobile_3@2x.png" alt="">
             </div>
             <div class="text-gray-900 pb-8 lg:pb-56">
-              <h3 class="text-4xl font-medium mb-3">Tackle your to-dos</h3>
-              <p class="text-xl font-medium">Stay on top of it all by adding due dates, reminders, and flags to your
+              <h3 class="text-3xl lg:text-4xl font-medium mb-3">Tackle your to-dos</h3>
+              <p class="text-lg lg:text-xl font-medium">Stay on top of it all by adding due dates, reminders, and flags to your
                 tasks. Set up recurring tasks to keep weekly or monthly to-dos on your radar.</p>
             </div>
           </div>
           <div>
-            <div class="lg:hidden">
+            <div class="lg:hidden px-12 mb-6">
               <img src="./../assets/images/we02_04_key_use_static_mobile_4@2x.png" alt="">
             </div>
             <div class="text-gray-900 pb-8 lg:pb-56">
-              <h3 class="text-4xl font-medium mb-3">You’ll find it easy</h3>
-              <p class="text-xl font-medium">Keep all your project materials in one place—including checklists, emails,
+              <h3 class="text-3xl lg:text-4xl font-medium mb-3">You’ll find it easy</h3>
+              <p class="text-lg lg:text-xl font-medium">Keep all your project materials in one place—including checklists, emails,
                 and PDFs. Smart search puts it all at your fingertips.</p>
             </div>
           </div>
@@ -5939,7 +5939,6 @@
       </div>
     </div>
   </section>
-
 
   <section>
     <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
@@ -6133,6 +6132,15 @@
             <p class="hidden lg:block">Walking schedule—check. Vet’s number—check. The mess on the rug—uhh...</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="aspect-video lg:aspect-[21/5] bg-green-500 bg-[url('./../assets/images/main-green.png')] flex items-center justify-center">
+      <div class="text-center px-6">
+        <h4 class="text-xl text-white font-medium mb-8">Feel the calm of being more organized.</h4>
+        <a class="text-green-500 bg-white font-bold rounded-md py-3 px-8" href="">Let’s get started</a>
       </div>
     </div>
   </section>
