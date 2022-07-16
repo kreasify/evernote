@@ -7,11 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Why Evernote | Evernote Tailwindcss</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
-    rel="stylesheet">
 </head>
 
 <body>
@@ -21,7 +16,7 @@
       :class="{ 'shadow-lg': !atTop }" x-on:scroll.window="atTop = (window.pageYOffset > 80) ? false : true;">
       <div class="container w-full max-w-screen-xl mx-auto px-6 py-6 lg:py-2">
         <div class="nav__wrapper grid grid-cols-12 items-center">
-          <div class="nav__brand col-span-11 lg:col-span-2">
+          <div class="nav__brand col-span-11 lg:col-span-3 xl:col-span-2">
             <a class="navbar__logo" href="/" title="Back to home">
               <svg xmlns="http://www.w3.org/2000/svg" width="177" height="40" viewBox="0 0 177 40">
                 <g fill="none">
@@ -51,7 +46,7 @@
             </button>
           </div>
           <div
-            class="nav__menu col-span-10 fixed lg:static w-full lg:w-full h-screen lg:h-auto left-0 top-0 bottom-0 overflow-scroll lg:overflow-auto bg-gray-900 lg:bg-transparent bg-opacity-40 transition-all duration-300 ease-[ease] z-20"
+            class="nav__menu col-span-9 xl:col-span-10 fixed lg:static w-full lg:w-full h-screen lg:h-auto left-0 top-0 bottom-0 overflow-scroll lg:overflow-auto bg-gray-900 lg:bg-transparent bg-opacity-40 transition-all duration-300 ease-[ease] z-20"
             :class="sideNav ? 'visible' : 'invisible lg:visible'">
             <nav x-data="{ selectedMenu: null }"
               class="navbar w-full h-full lg:h-auto bg-white lg:flex lg:justify-between lg:items-center shadow-md lg:shadow-none transition-all duration-300 ease-[ease]"
@@ -545,7 +540,7 @@
   <div class="pt-16 lg:pt-32"></div>
 
   <section>
-    <div class="container max-w-screen-lg mx-auto py-10 px-4 lg:px-8">
+    <div class="container max-w-screen-lg mx-auto py-10 px-4 md:px-8">
       <div class="text-center">
         <h1 class="text-4xl lg:text-6xl text-gray-900 font-semibold leading-tight">Why choose Evernote?</h1>
         <div class="text-xl lg:text-2xl text-gray-900 pt-6">
@@ -561,7 +556,7 @@
   </section>
 
   <section>
-    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
+    <div class="container max-w-screen-xl mx-auto py-10 px-4 md:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div class="border border-gray-100 shadow-lg rounded-md py-8 px-6">
           <div>
@@ -3106,7 +3101,7 @@
   </section>
 
   <section>
-    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
+    <div class="container max-w-screen-xl mx-auto py-10 px-4 md:px-8">
       <div class="max-w-3xl mx-auto">
         <img src="./../assets/images/why-evernote.png" alt="">
       </div>
@@ -3114,7 +3109,7 @@
   </section>
 
   <section>
-    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
+    <div class="container max-w-screen-xl mx-auto py-10 px-4 md:px-8">
       <header class="max-w-5xl mx-auto text-center mb-12">
         <h2 class="text-3xl lg:text-5xl text-gray-900 font-semibold leading-tight">Remember everything. Accomplish
           anything.</h2>
@@ -5859,7 +5854,7 @@
         return this.text
     },
 }' class="bg-gray-100">
-    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
+    <div class="container max-w-screen-xl mx-auto py-10 px-4 md:px-8">
       <div class="max-w-3xl mx-auto py-8">
         <div class="flex justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="33" height="24" viewBox="0 0 33 24" fill="none">
@@ -5899,7 +5894,8 @@
             </div>
             <div class="text-gray-900 pb-8 lg:pb-56">
               <h3 class="text-2xl lg:text-4xl font-medium mb-3">Hit every deadline</h3>
-              <p class="lg:text-xl font-medium">Link notes containing important action items to your calendar events, and
+              <p class="lg:text-xl font-medium">Link notes containing important action items to your calendar events,
+                and
                 Evernote will
                 surface the info you need—right when you need it.</p>
             </div>
@@ -5910,7 +5906,8 @@
             </div>
             <div class="text-gray-900 pb-8 lg:pb-56">
               <h3 class="text-2xl lg:text-4xl font-medium mb-3">Capture more than words</h3>
-              <p class="lg:text-xl font-medium">Get ideas down fast and combine them with images, sketches, documents, and
+              <p class="lg:text-xl font-medium">Get ideas down fast and combine them with images, sketches, documents,
+                and
                 audio recordings to turn passing thoughts into plans for action.</p>
             </div>
           </div>
@@ -5930,7 +5927,8 @@
             </div>
             <div class="text-gray-900 pb-8 lg:pb-56">
               <h3 class="text-2xl lg:text-4xl font-medium mb-3">You’ll find it easy</h3>
-              <p class="lg:text-xl font-medium">Keep all your project materials in one place—including checklists, emails,
+              <p class="lg:text-xl font-medium">Keep all your project materials in one place—including checklists,
+                emails,
                 and PDFs. Smart search puts it all at your fingertips.</p>
             </div>
           </div>
@@ -5940,7 +5938,7 @@
   </section>
 
   <section>
-    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
+    <div class="container max-w-screen-xl mx-auto py-10 px-4 md:px-8">
       <header class="max-w-5xl mx-auto text-center mb-12">
         <h2 class="text-3xl lg:text-5xl text-gray-900 font-semibold leading-tight">Get past “getting started”</h2>
         <div class="text-xl lg:text-2xl text-gray-900 pt-4">
@@ -6136,7 +6134,8 @@
   </section>
 
   <section>
-    <div class="aspect-video lg:aspect-[21/5] bg-green-500 bg-[url('./../assets/images/main-green.png')] flex items-center justify-center">
+    <div
+      class="aspect-video lg:aspect-[21/5] bg-green-500 bg-[url('./../assets/images/main-green.png')] flex items-center justify-center">
       <div class="text-center px-6">
         <h4 class="text-xl text-white font-medium mb-8">Feel the calm of being more organized.</h4>
         <a class="text-green-500 bg-white font-bold rounded-md py-3 px-8" href="">Let’s get started</a>
@@ -6145,7 +6144,7 @@
   </section>
 
   <section>
-    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
+    <div class="container max-w-screen-xl mx-auto py-10 px-4 md:px-8">
       <div class="pb-12 border-b-4 border-solid border-gray-900 mb-10">
         <svg xmlns="http://www.w3.org/2000/svg" width="178" height="40" viewBox="0 0 178 40">
           <g fill="none" transform="translate(.078)">
@@ -6263,7 +6262,8 @@
               </svg>
             </button>
           </div>
-          <div x-show="optionsLang" class="absolute bottom-32 lg:bottom-16 left-8 flex flex-wrap text-sm bg-blue-100 py-4">
+          <div x-show="optionsLang"
+            class="absolute bottom-32 lg:bottom-16 left-8 flex flex-wrap text-sm bg-blue-100 py-4">
             <ul>
               <li class="mb-2"><a class="block hover:text-white hover:bg-green-500 py-2 pl-6 pr-16" href="">Bahasa
                   Indonesia</a></li>

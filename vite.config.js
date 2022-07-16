@@ -9,8 +9,7 @@ module.exports = defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
-        // about: resolve(__dirname, 'src/about/index.html'),
-        // blog: resolve(__dirname, 'src/blog.html')
+        evernote: resolve(__dirname, 'src/why-evernote/index.html')
       }
     }
   }
