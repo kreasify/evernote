@@ -19,7 +19,7 @@
 
   <header x-data="{sideNav: false, atTop: true}" class="header relative">
     <div class="fixed w-full left-0 top-0 bg-white z-20 transition-all duration-500 ease-[ease] delay-300"
-      :class="{ 'shadow-lg': !atTop }" x-on:scroll.window="atTop = (window.pageYOffset > 200) ? false : true;">
+      :class="{ 'shadow-lg': !atTop }" x-on:scroll.window="atTop = (window.pageYOffset > 80) ? false : true;">
       <div class="container w-full max-w-screen-xl mx-auto px-6 py-4">
         <div class="nav__wrapper grid grid-cols-12 items-center">
           <div class="nav__brand col-span-11 lg:col-span-2">
@@ -52,12 +52,12 @@
             </button>
           </div>
           <div
-            class="nav__menu col-span-10 fixed lg:static w-full lg:w-full h-screen lg:h-auto left-0 top-0 bg-gray-900 lg:bg-transparent bg-opacity-40 transition-all duration-300 ease-[ease] z-20"
+            class="nav__menu col-span-10 fixed lg:static w-full lg:w-full h-screen lg:h-auto left-0 top-0 bottom-0 overflow-scroll lg:overflow-auto bg-gray-900 lg:bg-transparent bg-opacity-40 transition-all duration-300 ease-[ease] z-20"
             :class="sideNav ? 'visible' : 'invisible lg:visible'">
             <nav x-data="{ selectedMenu: null }"
               class="navbar w-80 lg:w-full h-full lg:h-auto bg-white lg:flex lg:justify-between lg:items-center shadow-md lg:shadow-none transition-all duration-300 ease-[ease]"
               :class="sideNav ? 'ml-auto mr-0' : 'ml-auto -mr-80 lg:mr-0'">
-              <ul class="navbar__menu menu lg:flex lg:items-center pt-16 lg:pt-[3px] px-6 lg:px-0">
+              <ul class="menu bg-white lg:flex lg:items-center pt-16 lg:pt-[3px] px-6 lg:px-0">
                 <li
                   class="menu__item border-b lg:border-b-[3px] border-solid border-gray-200 lg:border-transparent lg:hover:border-green-500">
                   <a class="block text-gray-900 hover:text-green-500 font-medium transition duration-300 ease-[ease] py-4 lg:px-3" href="">WHY EVERNOTE</a>
@@ -80,7 +80,7 @@
                     <div
                       class="bg-white w-full left-0 top-full transition-all duration-200 ease-[ease] origin-top z-10 lg:shadow-md lg:rounded-lg py-3 pl-0 mt-1 mb-0"
                       :class="{'static visible scale-y-100 opacity-100': selectedMenu === 1, 'absolute invisible lg:group-hover:visible opacity-0 lg:group-hover:opacity-100': selectedMenu !== 1 }">
-                      <ul class="submenu lg:grid lg:grid-cols-4 whitespace-nowrap max-w-screen-xl mx-auto pl-3 lg:pr-32"
+                      <ul class="submenu lg:grid lg:grid-cols-4 whitespace-nowrap max-w-screen-xl mx-auto lg:pl-3 lg:pr-32"
                         aria-hidden="true">
                         <li
                           class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 group py-4 pl-4 pr-6 mb-0">
@@ -472,7 +472,7 @@
                     <div
                       class="bg-white w-full left-0 top-full transition-all duration-200 ease-[ease] origin-top z-10 lg:shadow-md lg:rounded-lg py-3 pl-0 mt-1 mb-0"
                       :class="{'static visible scale-y-100 opacity-100': selectedMenu === 2, 'absolute invisible lg:group-hover:visible opacity-0 lg:group-hover:opacity-100': selectedMenu !== 2 }">
-                      <ul class="submenu lg:grid lg:grid-cols-4 whitespace-nowrap max-w-screen-xl mx-auto pl-3 pr-32"
+                      <ul class="submenu lg:grid lg:grid-cols-4 whitespace-nowrap max-w-screen-xl mx-auto lg:pl-3 pr-32"
                         aria-hidden="true">
                         <li
                           class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 py-4 pl-4 pr-6 mb-0">
@@ -522,15 +522,15 @@
                   </div>
                 </li>
               </ul>
-              <ul class="lg:flex lg:space-x-6 font-medium px-6">
-                <li class="menu__item border-b lg:border-b-0 border-solid border-gray-200">
+              <ul class="bg-white lg:flex lg:items-center lg:space-x-3 font-medium px-6 pb-20 lg:pb-0">
+                <li class="border-b lg:border-b-0 border-solid border-gray-200">
                   <a class="block text-gray-900 sm:uppercase py-4 lg:px-3" href="">Help</a>
                 </li>
-                <li class="menu__item border-b lg:border-b-0 border-solid border-gray-200">
+                <li class="border-b lg:border-b-0 border-solid border-gray-200 mb-8 lg:mb-0">
                   <a class="block text-gray-900 sm:uppercase py-4 lg:px-3" href="">Log In</a>
                 </li>
-                <li class="text-center pt-8 lg:pt-0">
-                  <a class="text-green-500 hover:text-green-700 font-medium border-2 border-solid border-green-500 hover:border-green-700 rounded-md py-2 px-6" href="">Download</a>
+                <li class="text-center">
+                  <a class="block text-green-500 hover:text-green-700 font-medium border-2 border-solid border-green-500 hover:border-green-700 rounded-md py-2 px-6" href="">Download</a>
                 </li>
               </ul>
             </nav>
@@ -540,20 +540,18 @@
     </div>
   </header>
 
- 
-
-  <div class="pt-32"></div>
+  <div class="pt-16 lg:pt-32"></div>
 
   <section>
-    <div class="container max-w-screen-lg mx-auto py-10 px-8">
+    <div class="container max-w-screen-lg mx-auto py-10 px-4 lg:px-8">
       <div class="text-center">
-        <h1 class="text-6xl text-gray-900 font-semibold leading-tight">Why choose Evernote?</h1>
-        <div class="text-2xl text-gray-900 pt-6">
+        <h1 class="text-4xl lg:text-6xl text-gray-900 font-semibold leading-tight">Why choose Evernote?</h1>
+        <div class="text-xl lg:text-2xl text-gray-900 pt-6">
           <p>Evernote gives you everything you need to keep life organized—great note taking, project planning, and easy
             ways to find what you need, when you need it.</p>
         </div>
         <div class="mt-12 mb-16">
-          <a class="text-white font-medium bg-green-600 hover:bg-green-500 rounded-md py-3 px-16" href="">Let's get
+          <a class="text-white font-medium bg-green-600 hover:bg-green-500 rounded-md py-3 px-20" href="">Let's get
             started</a>
         </div>
       </div>
@@ -561,9 +559,9 @@
   </section>
 
   <section>
-    <div class="container max-w-screen-xl mx-auto py-10 px-8">
-      <div class="grid grid-cols-4 gap-x-6">
-        <div class="shadow-lg rounded-md py-8 px-6">
+    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div class="border border-gray-100 shadow-lg rounded-md py-8 px-6">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
               <g clip-path="url(#clip0)">
@@ -916,7 +914,7 @@
             <p>Add more than text to your notes, including photos, files and to-do lists.</p>
           </div>
         </div>
-        <div class="shadow-lg rounded-md py-8 px-6">
+        <div class="border border-gray-100 shadow-lg rounded-md py-8 px-6">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
               <path
@@ -1144,7 +1142,7 @@
             <p>Create a personal space for all your most important ideas and information.</p>
           </div>
         </div>
-        <div class="shadow-lg rounded-md py-8 px-6">
+        <div class="border border-gray-100 shadow-lg rounded-md py-8 px-6">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1251,7 +1249,7 @@
             <p>Get the right note, right away with powerful search and keyword tags.</p>
           </div>
         </div>
-        <div class="shadow-lg rounded-md py-8 px-6">
+        <div class="border border-gray-100 shadow-lg rounded-md py-8 px-6">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="62" viewBox="0 0 60 62" fill="none">
               <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="26" width="55" height="36">
@@ -3106,7 +3104,7 @@
   </section>
 
   <section>
-    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
       <div class="max-w-3xl mx-auto">
         <img src="./../assets/images/why-evernote.png" alt="">
       </div>
@@ -3114,15 +3112,15 @@
   </section>
 
   <section>
-    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
       <header class="max-w-5xl mx-auto text-center mb-12">
-        <h2 class="text-5xl text-gray-900 font-semibold leading-tight">Remember everything. Accomplish anything.</h2>
-        <div class="text-2xl text-gray-900 pt-4">
+        <h2 class="text-3xl lg:text-5xl text-gray-900 font-semibold leading-tight">Remember everything. Accomplish anything.</h2>
+        <div class="text-xl lg:text-2xl text-gray-900 pt-4">
           <p>Evernote stands out to help you stay productive.</p>
         </div>
       </header>
-      <div class="grid grid-cols-2 gap-16">
-        <div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
               <circle cx="30" cy="30" r="30" fill="#1A1A1A" />
@@ -3637,12 +3635,12 @@
             </svg>
           </div>
           <div class="pt-6">
-            <h4 class="text-2xl text-gray-900 font-bold mb-2">Flexible organization</h4>
+            <h4 class="text-xl md:text-2xl text-gray-900 font-medium md:font-bold mb-2">Flexible organization</h4>
             <p>Evernote doesn’t force you to organize a certain way. Create a system of notebooks or don’t organize at
               all. Any note is a quick search away.</p>
           </div>
         </div>
-        <div>
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M2.17773 35.6519H54.9016V2.94336H2.17773V35.6519Z"
@@ -3774,12 +3772,12 @@
             </svg>
           </div>
           <div class="pt-6">
-            <h4 class="text-2xl text-gray-900 font-bold mb-2">Available everywhere</h4>
+            <h4 class="text-xl md:text-2xl text-gray-900 font-medium md:font-bold mb-2">Available everywhere</h4>
             <p>Have an iPhone and a Windows computer? Android and Mac? Like using Linux? Unlike most note-taking apps,
               Evernote works on them all.</p>
           </div>
         </div>
-        <div>
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
               <g clip-path="url(#clip0)">
@@ -3888,12 +3886,12 @@
             </svg>
           </div>
           <div class="pt-6">
-            <h4 class="text-2xl text-gray-900 font-bold mb-2">Web Clipper</h4>
+            <h4 class="text-xl md:text-2xl text-gray-900 font-medium md:font-bold mb-2">Web Clipper</h4>
             <p>Some note-taking apps strictly limit what you can save online. Evernote’s Web Clipper lets you save and
               annotate web pages, images, and PDFs.</p>
           </div>
         </div>
-        <div>
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
               <rect x="10.3508" y="0.353516" width="47.4341" height="59.2926" rx="5.92926" fill="#00A82D" />
@@ -4402,12 +4400,12 @@
             </svg>
           </div>
           <div class="pt-6">
-            <h4 class="text-2xl text-gray-900 font-bold mb-2">Character recognition</h4>
+            <h4 class="text-xl md:text-2xl text-gray-900 font-medium md:font-bold mb-2">Character recognition</h4>
             <p>Find notes by searching for keywords, even if the words appear in photos, whiteboard scans, business
               cards, handwriting, or documents.</p>
           </div>
         </div>
-        <div>
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
               <g clip-path="url(#clip0)">
@@ -4447,12 +4445,12 @@
             </svg>
           </div>
           <div class="pt-6">
-            <h4 class="text-2xl text-gray-900 font-bold mb-2">Web application</h4>
+            <h4 class="text-xl md:text-2xl text-gray-900 font-medium md:font-bold mb-2">Web application</h4>
             <p>Many note-taking apps lack a fully functional web application. Evernote Web offers a complete lineup of
               features from any major browser.</p>
           </div>
         </div>
-        <div>
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="84" height="84" viewBox="0 0 84 84" fill="none">
               <path d="M12 17.7692C12 14.583 14.583 12 17.7692 12H42V42H12V17.7692Z" fill="#00A82D" />
@@ -5826,7 +5824,7 @@
             </svg>
           </div>
           <div class="pt-6">
-            <h4 class="text-2xl text-gray-900 font-bold mb-2">App integrations</h4>
+            <h4 class="text-xl md:text-2xl text-gray-900 font-medium md:font-bold mb-2">App integrations</h4>
             <p>Evernote works with the apps you rely on, including Google Drive, Slack, Outlook, MS Teams, Zapier, and
               Gmail.</p>
           </div>
@@ -5858,7 +5856,7 @@
         return this.text
     },
 }' class="bg-gray-100">
-    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
       <div class="max-w-3xl mx-auto py-8">
         <div class="flex justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="33" height="24" viewBox="0 0 33 24" fill="none">
@@ -5875,14 +5873,14 @@
   </section>
 
   <section>
-    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
       <header class="max-w-5xl mx-auto text-center mb-12">
-        <h2 class="text-5xl text-gray-900 font-semibold leading-tight">Get past “getting started”</h2>
-        <div class="text-2xl text-gray-900 pt-4">
+        <h2 class="text-3xl lg:text-5xl text-gray-900 font-semibold leading-tight">Get past “getting started”</h2>
+        <div class="text-xl lg:text-2xl text-gray-900 pt-4">
           <p>Move tasks forward at work, home, and everywhere in between.</p>
         </div>
       </header>
-      <div class="grid grid-cols-4 gap-x-8 gap-y-20">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-20">
         <div class="text-center">
           <div class="flex justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
@@ -5899,7 +5897,7 @@
           </div>
           <div class="text-gray-500 pt-4">
             <h4 class="text-xl text-gray-900 font-bold mb-2">Meetings</h4>
-            <p>Make meeting prep a breeze by linking notes to your calendar events.</p>
+            <p class="hidden lg:block">Make meeting prep a breeze by linking notes to your calendar events.</p>
           </div>
         </div>
         <div class="text-center">
@@ -5915,7 +5913,7 @@
           </div>
           <div class="text-gray-500 pt-4">
             <h4 class="text-xl text-gray-900 font-bold mb-2">To-dos</h4>
-            <p>Give your memory a break by adding reminders to your tasks.</p>
+            <p class="hidden lg:block">Give your memory a break by adding reminders to your tasks.</p>
           </div>
         </div>
         <div class="text-center">
@@ -5936,7 +5934,7 @@
           </div>
           <div class="text-gray-500 pt-4">
             <h4 class="text-xl text-gray-900 font-bold mb-2">Projects</h4>
-            <p>Customize Home to show everything you need for your next big project.</p>
+            <p class="hidden lg:block">Customize Home to show everything you need for your next big project.</p>
           </div>
         </div>
         <div class="text-center">
@@ -5960,7 +5958,7 @@
           </div>
           <div class="text-gray-500 pt-4">
             <h4 class="text-xl text-gray-900 font-bold mb-2">Professional goals</h4>
-            <p>Quickly create the perfect plan to help you get organized—and get ahead.</p>
+            <p class="hidden lg:block">Quickly create the perfect plan to help you get organized—and get ahead.</p>
           </div>
         </div>
         <div class="text-center">
@@ -5979,7 +5977,7 @@
           </div>
           <div class="text-gray-500 pt-4">
             <h4 class="text-xl text-gray-900 font-bold mb-2">School</h4>
-            <p>Stay on top of your assignments and never miss a due date. </p>
+            <p class="hidden lg:block">Stay on top of your assignments and never miss a due date. </p>
           </div>
         </div>
         <div class="text-center">
@@ -6004,7 +6002,7 @@
           </div>
           <div class="text-gray-500 pt-4">
             <h4 class="text-xl text-gray-900 font-bold mb-2">Writing</h4>
-            <p>Express your ideas and find them quickly with search and keyword tags.</p>
+            <p class="hidden lg:block">Express your ideas and find them quickly with search and keyword tags.</p>
           </div>
         </div>
         <div class="text-center">
@@ -6035,7 +6033,7 @@
           </div>
           <div class="text-gray-500 pt-4">
             <h4 class="text-xl text-gray-900 font-bold mb-2">Vacations</h4>
-            <p>Let yourself relax. Keep the info you need for your getaway all in one spot.</p>
+            <p class="hidden lg:block">Let yourself relax. Keep the info you need for your getaway all in one spot.</p>
           </div>
         </div>
         <div class="text-center">
@@ -6063,7 +6061,7 @@
           </div>
           <div class="text-gray-500 pt-4">
             <h4 class="text-xl text-gray-900 font-bold mb-2">Pets</h4>
-            <p>Walking schedule—check. Vet’s number—check. The mess on the rug—uhh...</p>
+            <p class="hidden lg:block">Walking schedule—check. Vet’s number—check. The mess on the rug—uhh...</p>
           </div>
         </div>
       </div>
@@ -6071,7 +6069,7 @@
   </section>
 
   <section>
-    <div class="container max-w-screen-xl mx-auto py-10 px-8">
+    <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
       <div class="pb-12 border-b-4 border-solid border-gray-900 mb-10">
         <svg xmlns="http://www.w3.org/2000/svg" width="178" height="40" viewBox="0 0 178 40">
           <g fill="none" transform="translate(.078)">
@@ -6084,8 +6082,8 @@
           </g>
         </svg>
       </div>
-      <nav class="flex flex-wrap space-x-16 mb-16">
-        <div>
+      <nav class="lg:flex lg:flex-wrap lg:space-x-16 mb-16">
+        <div class="mb-6">
           <p class="text-gray-900 font-bold mb-5">Product</p>
           <ul>
             <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Why Evernote</a>
@@ -6106,7 +6104,7 @@
             </li>
           </ul>
         </div>
-        <div>
+        <div class="mb-6">
           <p class="text-gray-900 font-bold mb-5">Features</p>
           <ul>
             <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Web Clipper</a>
@@ -6133,7 +6131,7 @@
             <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Search</a></li>
           </ul>
         </div>
-        <div>
+        <div class="mb-6">
           <p class="text-gray-900 font-bold mb-5">Resources</p>
           <ul>
             <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Resources</a>
@@ -6154,7 +6152,7 @@
             <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Blog</a></li>
           </ul>
         </div>
-        <div>
+        <div class="mb-6">
           <p class="text-gray-900 font-bold mb-5">Support</p>
           <ul>
             <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Help &amp;
@@ -6165,7 +6163,7 @@
             <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">Forum</a></li>
           </ul>
         </div>
-        <div>
+        <div class="mb-6">
           <p class="text-gray-900 font-bold mb-5">Company</p>
           <ul>
             <li class="text-sm text-gray-700 hover:text-green-700 mb-5"><a class="text-current" href="">About Us</a>
@@ -6179,7 +6177,7 @@
       <nav
         class="relative flex flex-wrap justify-between items-center space-x-16 border-b border-solid border-gray-300 pb-8 mb-8">
         <div x-data="{optionsLang: false}">
-          <div class="text-sm">
+          <div class="text-sm flex justify-between items-center lg:block">
             <span class="font-bold">Choose a language:</span>
             <button @click="optionsLang = !optionsLang" class="inline-flex space-x-3 py-2 px-4">
               <span>English (US)</span>
@@ -6311,11 +6309,6 @@
       </div>
     </div>
   </section>
-
-
-
-
-
 
   <script type="module" src="./../assets/js/main.js"></script>
 </body>
