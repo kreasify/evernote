@@ -5880,8 +5880,8 @@
     @scroll.window="atElement = document.querySelector('#scrollThree').getBoundingClientRect().top <= 0 ? 'scrollThree' : (document.querySelector('#scrollTwo').getBoundingClientRect().top <= 0 ? 'scrollTwo' : 'scrollOne')">
     <div class="container max-w-screen-xl mx-auto py-10 px-4 lg:px-8">
       <div class="lg:grid lg:grid-cols-2 lg:gap-x-16">
-        <div class="">
-          <div class="sticky">
+        <div>
+          <div class="sticky top-32">
             <div x-show="atElement==='scrollOne'">
               <img src="./../assets/images/hit_every_deadline.png" alt="">
             </div>
@@ -5893,24 +5893,24 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="pr-24">
           <div id="scrollOne">
-            <div class="lg:hidde">
+            <div class="lg:hidden">
               <img src="./../assets/images/we01_01_key_use_static_mobile_1@2x.png" alt="">
             </div>
-            <div class="text-gray-900 pb-48 pr-20">
-              <h3 class="text-4xl font-bold mb-3">Hit every deadline</h3>
+            <div class="text-gray-900 pb-8 lg:pb-56">
+              <h3 class="text-4xl font-medium mb-3">Hit every deadline</h3>
               <p class="text-xl font-medium">Link notes containing important action items to your calendar events, and
                 Evernote will
                 surface the info you need—right when you need it.</p>
             </div>
           </div>
           <div id="scrollTwo">
-            <div class="lg:hidde">
+            <div class="lg:hidden">
               <img src="./../assets/images/we01_02_key_use_static_mobile_2@2x.png" alt="">
             </div>
-            <div class="text-gray-900 pb-48 pr-20">
-              <h3 class="text-4xl font-bold mb-3">Capture more than words</h3>
+            <div class="text-gray-900 pb-8 lg:pb-56">
+              <h3 class="text-4xl font-medium mb-3">Capture more than words</h3>
               <p class="text-xl font-medium">Get ideas down fast and combine them with images, sketches, documents, and
                 audio recordings to turn passing thoughts into plans for action.</p>
             </div>
@@ -5919,8 +5919,8 @@
             <div class="lg:hidden">
               <img src="./../assets/images/we02_03_key_use_static_mobile_3@2x.png" alt="">
             </div>
-            <div class="text-gray-900 pb-48 pr-20">
-              <h3 class="text-4xl font-bold mb-3">Tackle your to-dos</h3>
+            <div class="text-gray-900 pb-8 lg:pb-56">
+              <h3 class="text-4xl font-medium mb-3">Tackle your to-dos</h3>
               <p class="text-xl font-medium">Stay on top of it all by adding due dates, reminders, and flags to your
                 tasks. Set up recurring tasks to keep weekly or monthly to-dos on your radar.</p>
             </div>
@@ -5929,8 +5929,8 @@
             <div class="lg:hidden">
               <img src="./../assets/images/we02_04_key_use_static_mobile_4@2x.png" alt="">
             </div>
-            <div class="text-gray-900 pb-48 pr-20">
-              <h3 class="text-4xl font-bold mb-3">You’ll find it easy</h3>
+            <div class="text-gray-900 pb-8 lg:pb-56">
+              <h3 class="text-4xl font-medium mb-3">You’ll find it easy</h3>
               <p class="text-xl font-medium">Keep all your project materials in one place—including checklists, emails,
                 and PDFs. Smart search puts it all at your fingertips.</p>
             </div>
