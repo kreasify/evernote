@@ -44,11 +44,11 @@
             </button>
           </div>
           <div
-            class="nav__menu col-span-9 xl:col-span-10 fixed lg:static w-full lg:w-full h-screen lg:h-auto left-0 top-0 bottom-0 overflow-scroll lg:overflow-auto bg-gray-900 lg:bg-transparent bg-opacity-40 transition-all duration-300 ease-[ease] z-20"
+            class="nav__menu col-span-9 xl:col-span-10 fixed lg:static w-full h-screen lg:h-auto left-0 top-0 overflow-scroll lg:overflow-auto transition-all duration-300 ease-[ease] z-20"
             :class="sideNav ? 'visible' : 'invisible lg:visible'">
             <nav x-data="{ selectedMenu: null }"
-              class="navbar w-full h-full lg:h-auto bg-white lg:flex lg:justify-between lg:items-center shadow-md lg:shadow-none transition-all duration-300 ease-[ease]"
-              :class="sideNav ? 'mr-0' : '-mr-[100%] lg:mr-0'">
+              class="navbar w-full h-full lg:h-auto bg-white lg:flex lg:justify-between lg:items-center transition-all duration-300 ease-[ease] "
+              :class="sideNav ? 'ml-0' : '-ml-[100%] lg:ml-0'">
               <ul class="menu bg-white lg:flex lg:items-center pt-16 lg:pt-[3px] px-6 lg:px-0">
                 <li
                   class="menu__item border-b lg:border-b-[3px] border-solid border-gray-200 lg:border-transparent lg:hover:border-green-500">
@@ -71,10 +71,10 @@
                     </svg>
                   </button>
                   <div
-                    class="bg-white w-full left-0 top-full transition-all duration-200 ease-[ease] origin-top z-10 lg:shadow-lg"
-                    :class="{'static visible scale-y-100 opacity-100': selectedMenu === 1, 'absolute invisible lg:group-hover:visible opacity-0 lg:group-hover:opacity-100': selectedMenu !== 1 }">
+                    class="submenu__wrapper bg-white w-full left-0 top-full transition-all duration-200 ease-[ease] origin-top z-10 lg:shadow-lg"
+                    :class="{'static lg:absolute visible scale-y-100 opacity-100': selectedMenu === 1, 'absolute invisible lg:group-hover:visible scale-y-0 lg:group-hover:scale-y-100 opacity-0 lg:group-hover:opacity-100': selectedMenu !== 1 }">
                     <ul
-                      class="submenu lg:grid lg:grid-cols-4 whitespace-nowrap max-w-screen-xl mx-auto lg:pl-3 lg:pr-32"
+                      class="submenu lg:grid lg:grid-cols-4 whitespace-nowrap max-w-screen-xl mx-auto xl:pl-3 xl:pr-32"
                       aria-hidden="true">
                       <li
                         class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 group py-4 pl-4 pr-6 mb-0">
@@ -465,8 +465,9 @@
                     </button>
                     <div
                       class="bg-white w-full left-0 top-full transition-all duration-200 ease-[ease] origin-top z-10 lg:shadow-lg"
-                      :class="{'static visible scale-y-100 opacity-100': selectedMenu === 2, 'absolute invisible lg:group-hover:visible opacity-0 lg:group-hover:opacity-100': selectedMenu !== 2 }">
-                      <ul class="submenu lg:grid lg:grid-cols-4 whitespace-nowrap max-w-screen-xl mx-auto lg:pl-3 pr-32"
+                      :class="{'static lg:absolute visible scale-y-100 opacity-100': selectedMenu === 2, 'absolute invisible lg:group-hover:visible scale-y-0 lg:group-hover:scale-y-100 opacity-0 lg:group-hover:opacity-100': selectedMenu !== 2 }">
+                      <ul
+                        class="submenu lg:grid lg:grid-cols-4 whitespace-nowrap max-w-screen-xl mx-auto xl:pl-3 xl:pr-32"
                         aria-hidden="true">
                         <li
                           class="submenu__item text-sm text-gray-900 hover:text-green-700 hover:bg-gray-50 py-4 pl-4 pr-6 mb-0">
@@ -586,7 +587,8 @@
         <div class="md:flex-none md:w-1/2 md:pr-10">
           <h2 class="text-3xl lg:text-4xl text-gray-900 font-semibold leading-tight">Put your to-dos in context</h2>
           <div class="text-xl lg:text-2xl text-gray-900 pt-4">
-            <p>Tasks live inside your notes, so there’s no need to interrupt your flow by switching between your notes and a dedicated task manager.</p>
+            <p>Tasks live inside your notes, so there’s no need to interrupt your flow by switching between your notes
+              and a dedicated task manager.</p>
           </div>
         </div>
       </div>
@@ -627,7 +629,8 @@
 
   <section>
     <div class="container max-w-screen-xl mx-auto py-10 px-8 xl:px-20">
-      <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:justify-between bg-blue-50 py-12 px-4 lg:px-16">
+      <div
+        class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:justify-between bg-blue-50 py-12 px-4 lg:px-16">
         <div class="text-lg lg:text-2xl text-gray-900 font-medium text-center lg:text-left">
           <p>See which Evernote plan is right for you.</p>
         </div>
