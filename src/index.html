@@ -8,8 +8,8 @@
   <title>Tasks | Evernote Tailwindcss Template</title>
 </head>
 
-<body>
-  <header x-data="{sideNav: false, atTop: true}" class="header relative">
+<body x-data="{sideNav: false, atTop: true}" :class="{ 'overflow-hidden': sideNav }">
+  <header class="header relative">
     <div class="fixed w-full left-0 top-0 bg-white z-20 transition-all duration-500 ease-[ease] delay-300"
       :class="{ 'shadow-lg': !atTop }" x-on:scroll.window="atTop = (window.pageYOffset > 80) ? false : true;">
       <div class="container w-full max-w-screen-xl mx-auto px-6 py-6 lg:py-2">
@@ -519,13 +519,13 @@
               </ul>
               <ul class="bg-white lg:flex lg:items-center lg:space-x-3 font-medium px-6 pb-20 lg:pb-0">
                 <li class="border-b lg:border-b-0 border-solid border-gray-200">
-                  <a class="block text-gray-900 sm:uppercase py-4 lg:px-3" href="">Help</a>
+                  <a class="block text-gray-900 hover:text-green-500 sm:uppercase py-4 lg:px-3" href="">Help</a>
                 </li>
                 <li class="border-b lg:border-b-0 border-solid border-gray-200 mb-8 lg:mb-0">
-                  <a class="block text-gray-900 sm:uppercase py-4 lg:px-3" href="">Log In</a>
+                  <a class="block text-gray-900 hover:text-green-500 sm:uppercase py-4 lg:px-3" href="">Log In</a>
                 </li>
                 <li class="text-center">
-                  <a class="block text-green-500 hover:text-green-700 font-medium border-2 border-solid border-green-500 hover:border-green-700 rounded-md py-2 px-6"
+                  <a class="block text-green-600 hover:text-green-500 font-medium border-2 border-solid border-green-600 hover:border-green-500 rounded-md py-2 px-6"
                     href="">Download</a>
                 </li>
               </ul>
@@ -538,7 +538,7 @@
 
   <div class="pt-16 lg:pt-32"></div>
 
-  <section>
+  <section x-data="{ openVideo: false}">
     <div class="container max-w-screen-xl mx-auto py-10 px-8">
       <div class="md:flex items-center">
         <div class="md:flex-none md:w-1/2 pr-16">
@@ -552,8 +552,33 @@
               started</a>
           </div>
         </div>
-        <div class="md:flex-none md:w-1/2">
+        <div @click="openVideo = !openVideo" class="md:flex-none md:w-1/2 cursor-pointer">
           <img src="assets/images/task_video_thumbnail@2x.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div x-show="openVideo"
+      class="fixed top-0 left-0 bottom-0 right-0 bg-black/90 transition-all duration-300 ease-[ease] z-[100] flex items-center justify-center cursor-pointer">
+      <div class="container max-w-4xl mx-auto px-6 py-4">
+        <div class="text-white flex justify-end mb-6">
+          <svg @click="openVideo = !openVideo" class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 27.12 27.12">
+            <title>Asset 9</title>
+            <g id="Layer_2" data-name="Layer 2">
+              <g id="Layer_1-2" data-name="Layer 1">
+                <rect x="12.06" y="-4.12" width="3" height="35.36" transform="translate(-5.62 13.56) rotate(-45)">
+                </rect>
+                <rect x="-4.12" y="12.06" width="35.36" height="3" transform="translate(-5.62 13.56) rotate(-45)">
+                </rect>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div @click.outside="openVideo = false" class="aspect-video">
+          <iframe id="youtube-player" class="w-full h-full border-0"
+            src="https://www.youtube.com/embed/glfLSI4mC2I?rel=0&amp;autoplay=1&amp;modestbranding=1&amp;enablejsapi=1"
+            allowfullscreen="true" data-gtm-yt-inspected-6952761_190="true"
+            title="Tasks: An easier way to turn to-do into done"></iframe>
         </div>
       </div>
     </div>
@@ -566,12 +591,10 @@
           <img src="assets/images/tasks_lp_screenshot@x2.png" alt="">
         </div>
         <div class="md:flex-none md:w-1/2 md:pl-12">
-          <h2 class="text-3xl lg:text-4xl text-gray-900 font-semibold leading-tight">See the big picture, or every
-            little detail
+          <h2 class="text-3xl lg:text-4xl text-gray-900 font-semibold leading-tight">See the big picture, or every little detail
           </h2>
           <div class="text-xl lg:text-2xl text-gray-900 pt-4">
-            <p>Get an overview of everything on your plate, or focus on the information you need to tackle the task at
-              hand.</p>
+            <p>Get an overview of everything on your plate, or focus on the information you need to tackle the task at hand.</p>
           </div>
         </div>
       </div>
@@ -587,8 +610,7 @@
         <div class="md:flex-none md:w-1/2 md:pr-10">
           <h2 class="text-3xl lg:text-4xl text-gray-900 font-semibold leading-tight">Put your to-dos in context</h2>
           <div class="text-xl lg:text-2xl text-gray-900 pt-4">
-            <p>Tasks live inside your notes, so there’s no need to interrupt your flow by switching between your notes
-              and a dedicated task manager.</p>
+            <p>Tasks live inside your notes, so there’s no need to interrupt your flow by switching between your notes and a dedicated task manager.</p>
           </div>
         </div>
       </div>
@@ -636,8 +658,7 @@
         </div>
         <div>
           <a class="text-white font-medium bg-green-600 hover:bg-green-500 rounded-md py-3 px-6 lg:px-24"
-            href="">Compare
-            plans</a>
+            href="">Compare plans</a>
         </div>
       </div>
     </div>
@@ -646,11 +667,9 @@
   <section>
     <div class="container max-w-screen-xl mx-auto py-10 md:px-8">
       <div class="text-center max-w-5xl mx-auto mb-10 px-8">
-        <h2 class="text-4xl lg:text-5xl text-gray-900 font-semibold leading-tight">Regain clarity and take control of
-          your day</h2>
+        <h2 class="text-4xl lg:text-5xl text-gray-900 font-semibold leading-tight">Regain clarity and take control of your day</h2>
         <div class="lg:px-12">
-          <p class="text-xl lg:text-2xl text-gray-900 pt-6">Start each day confident that you have a clear plan of
-            action, and that nothing important will get lost in the shuffle.</p>
+          <p class="text-xl lg:text-2xl text-gray-900 pt-6">Start each day confident that you have a clear plan of action, and that nothing important will get lost in the shuffle.</p>
         </div>
       </div>
       <div x-data="{selectedImage: 1, selected: null}" class="md:flex md:items-center lg:items-start">
@@ -672,7 +691,8 @@
                 <div class="flex items-center justify-between">
                   <span class="text-gray-700 font-medium">ORGANIZE YOUR WAY</span>
                   <span class="text-green-600">
-                    <svg class="svg-icon active" width="31" height="31" viewBox="0 0 30.33 30.27" fill="currentColor"
+                    <svg class="svg-icon transition-all duration-300" :class="{ 'rotate-180': selected === 1 }"
+                      width="31" height="31" viewBox="0 0 30.33 30.27" fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg">
                       <title>ORGANIZE YOUR WAY</title>
                       <path class="st0" d="M15,0C6.7,0,0,6.7,0,15c0,8.3,6.7,15,15,15c8.3,0,15-6.7,15-15C30,6.7,23.3,0,15,0z M15,18.7l-6-6l1.4-1.4
@@ -698,7 +718,8 @@
                 <div class="flex items-center justify-between">
                   <span class="text-gray-700 font-medium">SEE YOUR PRIORITIES</span>
                   <span class="text-green-600">
-                    <svg class="svg-icon active" width="31" height="31" viewBox="0 0 30.33 30.27" fill="currentColor"
+                    <svg class="svg-icon transition-all duration-300" :class="{ 'rotate-180': selected === 2 }"
+                      width="31" height="31" viewBox="0 0 30.33 30.27" fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg">
                       <title>SEE YOUR PRIORITIES</title>
                       <path class="st0" d="M15,0C6.7,0,0,6.7,0,15c0,8.3,6.7,15,15,15c8.3,0,15-6.7,15-15C30,6.7,23.3,0,15,0z M15,18.7l-6-6l1.4-1.4
@@ -725,7 +746,8 @@
                 <div class="flex items-center justify-between">
                   <span class="text-gray-700 font-medium">STAY IN SYNC</span>
                   <span class="text-green-600">
-                    <svg class="svg-icon active" width="31" height="31" viewBox="0 0 30.33 30.27" fill="currentColor"
+                    <svg class="svg-icon transition-all duration-300" :class="{ 'rotate-180': selected === 3 }"
+                      width="31" height="31" viewBox="0 0 30.33 30.27" fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg">
                       <title>STAY IN SYNC</title>
                       <path class="st0" d="M15,0C6.7,0,0,6.7,0,15c0,8.3,6.7,15,15,15c8.3,0,15-6.7,15-15C30,6.7,23.3,0,15,0z M15,18.7l-6-6l1.4-1.4
@@ -751,7 +773,8 @@
                 <div class="flex items-center justify-between">
                   <span class="text-gray-700 font-medium">GET ALERTS</span>
                   <span class="text-green-600">
-                    <svg class="svg-icon active" width="31" height="31" viewBox="0 0 30.33 30.27" fill="currentColor"
+                    <svg class="svg-icon transition-all duration-300" :class="{ 'rotate-180': selected === 4 }"
+                      width="31" height="31" viewBox="0 0 30.33 30.27" fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg">
                       <title>GET ALERTS</title>
                       <path class="st0" d="M15,0C6.7,0,0,6.7,0,15c0,8.3,6.7,15,15,15c8.3,0,15-6.7,15-15C30,6.7,23.3,0,15,0z M15,18.7l-6-6l1.4-1.4

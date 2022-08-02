@@ -8,8 +8,8 @@ module.exports = defineConfig({
     outDir: resolve(__dirname, 'dist'),
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'src/index.html'),
-        evernote: resolve(__dirname, 'src/why-evernote/index.html')
+        // main: resolve(__dirname, 'src/index.html'),
+        main: resolve(__dirname, 'src/why-evernote/index.html')
       }
     }
   }

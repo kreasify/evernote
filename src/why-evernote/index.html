@@ -9,8 +9,8 @@
 
 </head>
 
-<body>
-  <header x-data="{sideNav: false, atTop: true}" class="header relative">
+<body x-data="{sideNav: false, atTop: true}" :class="{ 'overflow-hidden': sideNav }">
+  <header class="header relative">
     <div class="fixed w-full left-0 top-0 bg-white z-20 transition-all duration-500 ease-[ease] delay-300"
       :class="{ 'shadow-lg': !atTop }" x-on:scroll.window="atTop = (window.pageYOffset > 80) ? false : true;">
       <div class="container w-full max-w-screen-xl mx-auto px-6 py-6 lg:py-2">
@@ -520,13 +520,13 @@
               </ul>
               <ul class="bg-white lg:flex lg:items-center lg:space-x-3 font-medium px-6 pb-20 lg:pb-0">
                 <li class="border-b lg:border-b-0 border-solid border-gray-200">
-                  <a class="block text-gray-900 sm:uppercase py-4 lg:px-3" href="">Help</a>
+                  <a class="block text-gray-900 hover:text-green-500 sm:uppercase py-4 lg:px-3" href="">Help</a>
                 </li>
                 <li class="border-b lg:border-b-0 border-solid border-gray-200 mb-8 lg:mb-0">
-                  <a class="block text-gray-900 sm:uppercase py-4 lg:px-3" href="">Log In</a>
+                  <a class="block text-gray-900 hover:text-green-500 sm:uppercase py-4 lg:px-3" href="">Log In</a>
                 </li>
                 <li class="text-center">
-                  <a class="block text-green-500 hover:text-green-700 font-medium border-2 border-solid border-green-500 hover:border-green-700 rounded-md py-2 px-6"
+                  <a class="block text-green-600 hover:text-green-500 font-medium border-2 border-solid border-green-600 hover:border-green-500 rounded-md py-2 px-6"
                     href="">Download</a>
                 </li>
               </ul>
@@ -3100,10 +3100,105 @@
     </div>
   </section>
 
-  <section>
-    <div class="container max-w-screen-xl mx-auto py-10 px-4 md:px-8">
-      <div class="max-w-3xl mx-auto">
-        <img src="./../assets/images/why-evernote.png" alt="">
+  <section x-data="{atElement: 'scroll1'}"
+    @scroll.window="atElement = document.querySelector('#scroll5').getBoundingClientRect().top <= 0 ? 'scroll5' : (document.querySelector('#scroll4').getBoundingClientRect().top <= 0 ? 'scroll4' : (document.querySelector('#scroll3').getBoundingClientRect().top <= 0 ? 'scroll3' : (document.querySelector('#scroll2').getBoundingClientRect().top <= 0 ? 'scroll2' : 'scroll1')))">
+    <div class="container max-w-screen-xl mx-auto py-10 px-6 md:px-8">
+      <div class="hidden lg:block max-w-5xl mx-auto">
+        <div class="sticky top-32">
+          <div class="relative">
+            <div>
+              <img src="./../assets/images/scroll/image_01.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll1'" class="absolute top-0 left-0"
+              x-transition:enter="transition ease-[ease] duration-500"
+              x-transition:enter-start="opacity-0 -translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-[ease] duration-500"
+              x-transition:leave-start="opacity-100 translate-0" x-transition:leave-end="opacity-0 translate-y-4">
+              <img src="./../assets/images/scroll/image_text_01.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll2'" class="absolute top-0 left-0">
+              <img src="./../assets/images/scroll/image_02.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll2'" class="absolute top-0 left-0"
+              x-transition:enter="transition ease-[ease] duration-500"
+              x-transition:enter-start="opacity-0 -translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-[ease] duration-500"
+              x-transition:leave-start="opacity-100 translate-0" x-transition:leave-end="opacity-0 translate-y-4">
+              <img src="./../assets/images/scroll/image_text_02.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll2'" class="absolute top-0 left-0"
+              x-transition:enter="transition ease-[ease] duration-500"
+              x-transition:enter-start="opacity-0 -translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-[ease] duration-500"
+              x-transition:leave-start="opacity-100 translate-0" x-transition:leave-end="opacity-0 translate-y-4">
+              <img src="./../assets/images/scroll/image_text_03.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll3'" class="absolute top-0 left-0">
+              <img src="./../assets/images/scroll/image_03.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll3'" class="absolute top-0 left-0"
+              x-transition:enter="transition ease-[ease] duration-500"
+              x-transition:enter-start="opacity-0 -translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-[ease] duration-500"
+              x-transition:leave-start="opacity-100 translate-0" x-transition:leave-end="opacity-0 translate-y-4">
+              <img src="./../assets/images/scroll/image_text_04.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll3'" class="absolute top-0 left-0"
+              x-transition:enter="transition ease-[ease] duration-500"
+              x-transition:enter-start="opacity-0 -translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-[ease] duration-500"
+              x-transition:leave-start="opacity-100 translate-0" x-transition:leave-end="opacity-0 translate-y-4">
+              <img src="./../assets/images/scroll/image_text_05.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll4' || atElement==='scroll5'" class="absolute top-0 left-0">
+              <img src="./../assets/images/scroll/image_05.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll4'" class="absolute top-0 left-0"
+              x-transition:enter="transition ease-[ease] duration-500"
+              x-transition:enter-start="opacity-0 -translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-[ease] duration-500"
+              x-transition:leave-start="opacity-100 translate-0" x-transition:leave-end="opacity-0 translate-y-4">
+              <img src="./../assets/images/scroll/image_text_06.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll4'" class="absolute top-0 left-0"
+              x-transition:enter="transition ease-[ease] duration-500"
+              x-transition:enter-start="opacity-0 -translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-[ease] duration-500"
+              x-transition:leave-start="opacity-100 translate-0" x-transition:leave-end="opacity-0 translate-y-4">
+              <img src="./../assets/images/scroll/image_text_07.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll5'" class="absolute top-0 left-0"
+              x-transition:enter="transition ease-[ease] duration-500"
+              x-transition:enter-start="opacity-0 -translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-[ease] duration-500"
+              x-transition:leave-start="opacity-100 translate-0" x-transition:leave-end="opacity-0 translate-y-4">
+              <img src="./../assets/images/scroll/image_text_09.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll5'" class="absolute top-0 left-0">
+              <img src="./../assets/images/scroll/image_07.png" alt="">
+            </div>
+            <div x-show="atElement==='scroll5'" class="absolute top-0 left-0"
+              x-transition:enter="transition ease-[ease] duration-500"
+              x-transition:enter-start="opacity-0 -translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-[ease] duration-500"
+              x-transition:leave-start="opacity-100 translate-0" x-transition:leave-end="opacity-0 translate-y-4">
+              <img src="./../assets/images/scroll/image_text_08.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div>
+          <div id="scroll1" class="pt-64"></div>
+          <div id="scroll2" class="pt-64"></div>
+          <div id="scroll3" class="pt-64"></div>
+          <div id="scroll4" class="pt-64"></div>
+          <div id="scroll5" class="pt-64"></div>
+          <div id="scroll6" class="pt-80"></div>
+          <div id="scroll7" class="pt-80"></div>
+          <div id="scroll8" class=" pt-80"></div>
+        </div>
+      </div>
+      <div class="lg:hidden">
+        <img class="mx-auto max-w-full" src="./../assets/images/mobile_why_evernote.png" alt="">
       </div>
     </div>
   </section>
@@ -5832,27 +5927,24 @@
   </section>
 
   <section x-data='{
-    texts: [
-      "You can even send emails to Evernote and gather all of the things you need in a single place.",
-      "A few years ago, after my computer broke down and I lost all of the notes I had saved to my desktop, I finally decided to embrace the cloud and download Evernote. Since then, I haven’t looked back.",
-      "It feels like there are endless ways to use Evernote… Use it for school, work, life, and beyond.",
-      "Evernote is a powerful tool for managing your tasks right alongside all of the information you work with every day.",
-      "Consider Evernote to be your go-to hub for not just to-do lists but all of your notes. The organizational possibilities are expansive, and everything syncs across all of your devices that have the app enabled, so you’ll never miss a beat." ],
-    text: "",
+    reviews: [
+      { "id": 0, "name": "— Forbes", "image": "forbes-active.png", "width": "110", "text": "Evernote is a powerful tool that can help executives, entrepreneurs and creative people capture and arrange their ideas. All you have to do is use it." },
+      { "id": 1, "name": "— Inc. Magazine", "image": "logo-inc-active.png", "width": "90", "text": "Evernote is a powerful tool for managing your tasks right alongside all of the information you work with every day." },
+      { "id": 2, "name": "— The Verge", "image": "the-verge_active.png", "width": "150", "text": "It feels like there are endless ways to use Evernote… Use it for school, work, life, and beyond." },
+      { "id": 3, "name": "— Entrepreneur Magazine", "image": "entrepreneur-magazine_active.png", "width": "150", "text": "A few years ago, after my computer broke down and I lost all of the notes I had saved to my desktop, I finally decided to embrace the cloud and download Evernote. Since then, I haven’t looked back." },
+      { "id": 4, "name": "— Business.com", "image": "business-active.png", "width": "150", "text": "You can even send emails to Evernote and gather all of the things you need in a single place." },
+      { "id": 5, "name": "— Well + Good", "image": "well-good_active.png", "width": "150", "text": "Consider Evernote to be your go-to hub for not just to-do lists but all of your notes. The organizational possibilities are expansive, and everything syncs across all of your devices that have the app enabled, so you’ll never miss a beat." }
+    ],
     point: 0,
     init() {
       setInterval(() => {
-        if(this.point < this.texts.length - 1){
+        if(this.point < this.reviews.length - 1){
           this.point ++;
         }else{
           this.point = 0;
         }
-        this.text = this.texts[this.point];
       }, 3000);
-    },
-    getText() {
-        return this.text
-    },
+    }
 }' class="bg-gray-100">
     <div class="container max-w-screen-xl mx-auto py-10 px-4 md:px-8">
       <div class="max-w-3xl mx-auto py-8">
@@ -5863,9 +5955,23 @@
               fill="#00A82D" />
           </svg>
         </div>
-        <div class="text-center text-xl leading-loose pt-6">
-          <blockquote class="before:content-['\201C'] after:content-['\201D']" x-text="getText()"></blockquote>
+        <div class="text-center text-black text-xl lg:text-2xl pt-6 mb-8">
+          <blockquote class="before:content-['\201C'] after:content-['\201D'] mb-6" x-text="reviews[point].text">
+          </blockquote>
+          <blockquote class="font-medium" x-text="reviews[point].name"></blockquote>
         </div>
+      </div>
+      <div class="max-w-5xl mx-auto mb-4">
+        <ul class="flex items-center justify-center space-x-3 lg:space-x-12 cursor-pointer">
+          <template x-for="review in reviews" :key="review.id">
+            <li x-on:click="point = review.id">
+              <img class="hidden lg:block" :src="`./../assets/images/${review.image}`" :alt="review.name"
+                :class="review.id == point ? 'opacity-100' : 'opacity-30 hover:opacity-100'">
+              <div class="w-3 h-3 bg-black rounded-full lg:hidden"
+                :class="review.id == point ? 'opacity-100' : 'opacity-30 hover:opacity-100'"></div>
+            </li>
+          </template>
+        </ul>
       </div>
     </div>
   </section>
